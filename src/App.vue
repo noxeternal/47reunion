@@ -1,33 +1,37 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+      <v-toolbar-title class="headline">
+        47th <span class="text-uppercase">Infantry Regiment</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+      <span>Reunion Registration</span>
+      <span class="mx-2">April 22-26, 2020</span>
     </v-app-bar>
 
-    <v-content>
-      <HelloWorld />
+    <v-content class="mx-4">
+      <v-row>
+        <veteran />
+        <reunion />
+        <guest v-if="registration == 40" />
+      </v-row>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import veteran from "./components/veteran";
+import guest from "./components/guest";
+import reunion from "./components/reunion";
+
+import { mapState } from 'Vuex'
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    veteran,
+    guest,
+    reunion
   },
   data: () => ({
     //

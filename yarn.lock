@@ -880,6 +880,11 @@
     eslint "^4.19.1"
     eslint-plugin-vue "^4.7.1"
 
+"@vue/cli-plugin-vuex@^4.0.0-alpha.4":
+  version "4.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-vuex/-/cli-plugin-vuex-4.0.0-alpha.4.tgz#1245d232f5a538e9d8c4b37bba99ed7145f8f8db"
+  integrity sha512-W1R0K3vP8Lvl+PTNYaHDfzPsxIWU4hcH9hf6KlbQHdO2rgJmD/amGywfTkIl4lcM4g0j27WnyZzLqky28ElFiA==
+
 "@vue/cli-service@^3.11.0":
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.11.0.tgz#356526e9100a7a0a258e3c4a13ff421de29eadde"
