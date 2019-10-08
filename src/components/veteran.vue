@@ -1,7 +1,7 @@
 <template>
   <v-card class="ma-2">
-    <v-card-title><v-icon class="mr-2">mdi-account-edit</v-icon>Registrant Information</v-card-title>
-    <v-card-text>
+    <v-card-title class="secondary"><v-icon class="mr-2">mdi-account-edit</v-icon>Registrant Information</v-card-title>
+    <v-card-text class="pt-2">
       <v-row>
         <v-text-field class="mx-2" label="First Name" outlined dense></v-text-field>
         <v-text-field class="mx-2" label="Last Name" outlined dense></v-text-field>
@@ -16,3 +16,16 @@
     </v-card-text>
   </v-card>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  data: () => ({
+    //
+  }),
+  computed: {
+    ...mapState(['group','guestCount'])
+  }
+};
+</script>

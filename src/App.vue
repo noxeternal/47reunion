@@ -13,28 +13,45 @@
       <v-row>
         <veteran />
         <reunion />
-        <guest v-if="registration == 40" />
+        <events />
+      </v-row>
+      <v-row>
+        <guest v-if="group" />
       </v-row>
     </v-content>
   </v-app>
 </template>
 
+<style>
+.amt {
+  font-size: 16px;
+}
+.v-messages {
+  display: none!important;
+}
+</style>
+
 <script>
 import veteran from "./components/veteran";
-import guest from "./components/guest";
 import reunion from "./components/reunion";
+import guest from "./components/guest";
+import events from "./components/events";
 
-import { mapState } from 'Vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: "App",
   components: {
     veteran,
+    reunion,
     guest,
-    reunion
+    events
   },
   data: () => ({
     //
-  })
+  }),
+  computed: {
+    ...mapState(['group','guestCount'])
+  }
 };
 </script>
