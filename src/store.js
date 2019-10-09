@@ -5,39 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    group: false,
-    guestCount: 1,
-    reunion: {
-      registrant: {  
-        firstName: '',
-        lastName: '',
-        badgeName: '',
-        units: [],
-        datesInCountry: [],
-        events: {},
-        contactInfo: {
-          address:['',''],
-          city: '',
-          state: '',
-          zip: '',
-          phone: {
-            home: '',
-            cell: ''
-          },
-          email: ''
-        }
-      },
-      guests: [
-        {  
-          firstName: '',
-          lastName: '',
-          badgeName: '',
-          events: {}
-        }
-      ]      
+    veteran: {
+      events:[],
+      sum:0,
+      firstName: 'Michael',
+      lastName: 'Rice',
+      badgeName: 'Mikee',
+      units: 'n/a',
+      dates: 'n/a'
     },
+    guest: [],
     events: [
-      { name: 'Transportation & Misc', amt: 12 },
+      { name: 'Reunion Registration', amt: 25 },
+      { name: 'Transportation & Misc', amt: 15 },
       { name: 'Golf Scramble', amt: 65 },
       { name: 'Poolside Cookout', amt: 30 },
       { name: 'Regimental Dinner', amt: 50 }
@@ -45,14 +25,12 @@ export default new Vuex.Store({
     
   },
   mutations: {
-    SET_GROUP (state, payload) {
-      state.group = payload || false
+    SET_VETERAN (state, payload) {
+      state.veteran = Object.assign({}, payload) || {sum:0}
     },
-    SET_GUESTCOUNT (state, payload) {
-      state.guestCount = payload || 1
-    },
-    SET_GUESTS (state, payload)  {
-      state.guests = payload || []
+    SET_GUEST (state, payload) {
+      Vue.set(state.guest, payload.index, payload)
+      // state.guest[payload.index] = payload || {}
     }
   },
   actions: {}

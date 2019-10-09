@@ -10,22 +10,32 @@
     </v-app-bar>
 
     <v-content class="mx-4">
-      <v-row>
-        <veteran />
-        <reunion />
-        <events />
+      <v-row justify="center" >
+        <v-col cols="4"><veteran class="fill-height" /></v-col>
+        <v-col cols="4"><events class="fill-height" /></v-col>
       </v-row>
-      <v-row>
-        <guest v-if="group" />
+      <v-row justify="center">
+        <v-col cols="8"><guest /></v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col cols="8"><total /></v-col>
       </v-row>
     </v-content>
   </v-app>
 </template>
 
 <style>
+.v-card__title {
+  max-height: 55px;
+}
 .amt {
   font-size: 16px;
 }
+  .total {
+    text-align: right;
+    min-width: 60px;
+  }
+
 .v-messages {
   display: none!important;
 }
@@ -33,25 +43,20 @@
 
 <script>
 import veteran from "./components/veteran";
-import reunion from "./components/reunion";
-import guest from "./components/guest";
 import events from "./components/events";
-
-import { mapState } from 'vuex'
+import guest from "./components/guest";
+import total from "./components/total";
 
 export default {
   name: "App",
   components: {
     veteran,
-    reunion,
+    events,
     guest,
-    events
+    total
   },
   data: () => ({
     //
-  }),
-  computed: {
-    ...mapState(['group','guestCount'])
-  }
+  })
 };
 </script>
