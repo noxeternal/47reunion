@@ -38,10 +38,8 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier"
+      "plugin:vue/strongly-recommended"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
     }

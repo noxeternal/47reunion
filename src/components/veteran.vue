@@ -1,7 +1,8 @@
 <template>
   <v-card class="ma-2">
-    <v-card-title class="secondary"><v-icon class="mr-2">mdi-account-edit</v-icon>Registrant Information</v-card-title>
-    <v-card-text class="pt-2">
+    <v-card-title class="secondary"
+      ><v-icon class="mr-2">mdi-account-edit</v-icon>Veteran Information</v-card-title>
+    <v-card-text class="pt-4">
       <v-row>
         <v-text-field class="mx-2" label="First Name" v-model="veteran.firstName" outlined dense></v-text-field>
         <v-text-field class="mx-2" label="Last Name" v-model="veteran.lastName" outlined dense></v-text-field>
@@ -18,11 +19,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
-  data: () => ({
-  }),
+  data: () => ({}),
   computed: {
     ...mapState(['veteran'])
   }
