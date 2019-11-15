@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-2">
+  <v-card>
     <v-card-title class="secondary">
       <v-icon class="mr-2">mdi-cash-usd</v-icon>Amount Due<v-spacer />
     </v-card-title>

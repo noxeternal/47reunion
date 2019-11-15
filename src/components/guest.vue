@@ -1,16 +1,16 @@
 <template>
-  <v-card class="ma-2">
+  <v-card>
     <v-card-title class="secondary">
       <v-icon class="mr-2">mdi-account-plus</v-icon>
       Guest Information ({{ guest.length }})
       <v-spacer />
-      <v-btn icon title="Add Guest" @click="addGuest()"
-        ><v-icon>mdi-plus-box</v-icon></v-btn>
+      <v-btn icon title="Add Guest" @click="addGuest()">
+        <v-icon>mdi-plus-box</v-icon></v-btn>
     </v-card-title>
     <v-card-text class="pt-2">
-      <v-flex v-if="guest.length == 0" class="text-center">
+      <v-flex v-if="guest.length == 0" class="text-center pointer" @click="addGuest()">
         Please click
-        <v-btn icon title="Add Guest" @click="addGuest()">
+        <v-btn icon title="Add Guest">
           <v-icon small>mdi-plus-box</v-icon>
         </v-btn>
         to add a guest
@@ -18,7 +18,7 @@
       <template v-else v-for="(guest, i) in guest">
         <hr v-if="i > 0" :key="`${i}0`" class="mb-3 green" />
         <v-row :key="`${i}1`" align="stretch">
-          <v-btn icon title="Remove Guest" @click="delGuest(guest)"><v-icon>mdi-minus-box</v-icon></v-btn>
+          <v-btn icon title="Remove Guest" @click="delGuest(guest)"><v-icon color="red">mdi-trash-can</v-icon></v-btn>
           <v-text-field class="mx-2" :label="`Guest ${parseInt(i) + 1} Name`" v-model="guest.name" outlined dense></v-text-field>
           <v-text-field class="mx-2" label="Name for Badge" v-model="guest.badge" outlined dense></v-text-field>
           <span class="amt ma-2 green--text total">Guest Total:</span>
@@ -26,9 +26,8 @@
             ${{ guest.sum.toFixed(2) }}
           </div>
         </v-row>
-        <v-row :key="`${i}2`">
-          <v-checkbox label="Reunion Registration - $25.00" readonly :value="true" v-model="boolT" class=" my-1"></v-checkbox>
-          <v-checkbox multiple @change="saveGuest(guest)" v-for="(event, index) in events" :key="index" :label="`${event.name} - $${event.amt.toFixed(2)}`" v-model="guest.events" :value="event.name" class="pl-3 ma-1"></v-checkbox>
+        <v-row justify="space-between" class="mr-2" :key="`${i}2`">
+          <v-checkbox multiple @change="saveGuest(guest)" v-for="(event, index) in events" :key="index" :label="`${event.name}: $${event.amt}`" v-model="guest.events" :value="event.name" class="pl-3 ma-1"></v-checkbox>
         </v-row>
       </template>
     </v-card-text>
@@ -42,7 +41,6 @@ import { mapState } from 'vuex';
 
 export default {
   data: () => ({
-    boolT: true
   }),
   methods: {
     addGuest() {

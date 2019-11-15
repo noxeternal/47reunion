@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-2" min-width="350px">
+  <v-card>
     <v-card-title class="secondary">
       <v-icon class="mr-2">mdi-format-list-checks</v-icon>
       Events
