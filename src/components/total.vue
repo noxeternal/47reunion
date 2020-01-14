@@ -14,7 +14,7 @@
             {{ veteran.sum.toFixed(2) }}
           </div>
         </v-row>
-        <v-row v-for="guest in this.$store.state.guest" :key="guest.index">
+        <v-row v-for="guest in this.$store.state.guests" :key="guest.index">
           <div class="ma-2 right-text">
             Guest - {{ guest.name }}
           </div>
@@ -44,9 +44,9 @@ import { mapState } from 'vuex';
 export default {
   data: () => ({}),
   computed: {
-    ...mapState(['veteran', 'guest']),
+    ...mapState(['veteran', 'guests']),
     totalDue() {
-      return this.veteran.sum + this.guest.reduce((c, v) => {
+      return this.veteran.sum + this.guests.reduce((c, v) => {
           return c += v.sum;
         }, 0)      
     }

@@ -23,7 +23,7 @@
           <div class="headline">This information has not been saved</div>
         </v-col>
         <v-col cols="2">
-          <v-btn class="primary" @click="changed=false" disabled>Save</v-btn>
+          <v-btn class="primary" @click="save()">Save</v-btn>
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -46,6 +46,9 @@
         </v-col>
       </v-row>
     </v-content>
+    <v-overlay opacity="0.90" :value="showOverlay">
+      <v-progress-circular v-if="showLoading" indeterminate :width="15" :size="150" color="accent"></v-progress-circular>
+    </v-overlay>
   </v-app>
 </template>
 
@@ -100,12 +103,34 @@ export default {
     badge
   },
   data: () => ({
+    showOverlay: false,
+    showLoading: false,
     showEvents: false,
-    changed: true
+    changed: true,
+    _TEST_DATA_: {}
   }),
   methods: {
     dumpStore () {console.log({veteran: this.$store.state.veteran, guests: this.$store.state.guest})},
-    showAttendance () {}
+    showAttendance () {},
+    save () { 
+      this.showOverlay = true
+      this.showLoading = true
+      const record = {
+        veteran: this.$store.state.veteran,
+        guests: this.$store.state.guests
+      }
+      this._TEST_DATA_ = record
+      try {
+        this.$axios.post('/api', record)
+      } catch (err) {
+        if(err) console.log(err)
+      }
+      setTimeout(() => { this.showLoading = false }, 1000)
+      setTimeout(() => { this.showOverlay = false }, 1000)
+    },
+    load () {
+
+    }
   },
   mounted () {
     if(localStorage.registration) {

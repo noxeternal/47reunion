@@ -2,21 +2,14 @@
   <v-card>
     <v-card-title class="secondary">
       <v-icon class="mr-2">mdi-account-plus</v-icon>
-      Guest Information ({{ guest.length }})
-      <v-spacer />
+      Guest Information ({{ guests.length }})
+      <!-- v-spacer />
       <v-btn icon title="Add Guest" @click="addGuest()">
-        <v-icon>mdi-plus-box</v-icon></v-btn>
+        <v-icon>mdi-plus-box</v-icon>
+      </v-btn -->
     </v-card-title>
     <v-card-text class="pt-2">
-      <v-flex v-if="guest.length == 0" class="text-center pointer" @click="addGuest()">
-        Please click
-        <v-btn icon title="Add Guest">
-          <v-icon small>mdi-plus-box</v-icon>
-        </v-btn>
-        to add a guest
-      </v-flex>
-      <template v-else v-for="(guest, i) in guest">
-        <hr v-if="i > 0" :key="`${i}0`" class="mb-3 green" />
+      <template v-if="guests.length > 0" v-for="(guest, i) in guests">
         <v-row :key="`${i}1`" align="stretch">
           <v-btn icon title="Remove Guest" @click="delGuest(guest)"><v-icon color="red">mdi-trash-can</v-icon></v-btn>
           <v-text-field class="mx-2" :label="`Guest ${parseInt(i) + 1} Name`" v-model="guest.name" outlined dense></v-text-field>
@@ -29,7 +22,15 @@
         <v-row justify="space-between" class="mr-2" :key="`${i}2`">
           <v-checkbox multiple @change="saveGuest(guest)" v-for="(event, index) in events" :key="index" :label="`${event.name}: $${event.amt}`" v-model="guest.events" :value="event.name" class="pl-3 ma-1"></v-checkbox>
         </v-row>
+        <hr :key="`${i}0`" class="mb-3 green" />
       </template>
+      <v-flex class="text-center pointer" @click="addGuest()">
+        Please click
+        <v-btn icon title="Add Guest">
+          <v-icon small>mdi-plus-box</v-icon>
+        </v-btn>
+        to add a guest
+      </v-flex>
     </v-card-text>
   </v-card>
 </template>
@@ -45,13 +46,13 @@ export default {
   methods: {
     addGuest() {
       const index = Math.random().toString(36);
-      this.guest.push({ index, events: [], sum: 25 });
+      this.guests.push({ index, events: [], sum: 25 });
       this.saveGuest()
     },
     delGuest(guest) {
-      const index = this.guest.indexOf(guest);
+      const index = this.guests.indexOf(guest);
       if (index != -1) {
-        this.guest.splice(index, 1);
+        this.guests.splice(index, 1);
         this.$store.commit('DEL_GUEST', guest)
       }
     },
@@ -69,7 +70,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['guest', 'events'])
+    ...mapState(['guests', 'events'])
   }
 };
 </script>

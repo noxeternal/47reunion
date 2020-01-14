@@ -6,7 +6,9 @@ module.exports = {
     host: 'dev.vm',
     port: 3000,
     proxy: {
-      '/api': 'http://dev.vm/api'
+      '^api': {
+        target: 'http://dev.vm:3001/?'
+      }
     }
   }
 };

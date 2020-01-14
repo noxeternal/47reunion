@@ -26,7 +26,7 @@
       </template>
       
       <v-row class="ul font-weight-bold">
-        Other
+        Or other
       </v-row>
       <v-row>
         <v-text-field v-model="veteran.other" outlined dense></v-text-field>

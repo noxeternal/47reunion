@@ -16,7 +16,7 @@ export default new Vuex.Store({
       other: '',
       dates: [{fromMonth:'Jan', fromYear: 65, toMonth: 'Jan', toYear: 65}]
     },
-    guest: [],
+    guests: [],
     events: [
       // { name: "Reunion Registration", amt: 25 },
       { name: "Regimental Dinner", amt: 50, short: 'Dinner' },
@@ -35,18 +35,22 @@ export default new Vuex.Store({
       state.veteran = Object.assign({}, payload) || { sum: 0 };
     },
     SET_GUEST(state, payload) {
-      Vue.set(state.guest, payload.index, payload);
-      // state.guest[payload.index] = payload || {}
+      Vue.set(state.guests, payload.index, payload);
+      // state.guests[payload.index] = payload || {}
+    },
+    SET_GUESTS(state, payload) {
+      state.guests = Object.assign({}, payload) || { sum: 0 };
     },
     DEL_GUEST (state, payload) {
-      const guestIndex = state.guest.indexOf(payload)
-      Vue.delete(state.guest, guestIndex)
+      const guestIndex = state.guests.indexOf(payload)
+      Vue.delete(state.guests, guestIndex)
     }
   },
   actions: {
     async loadRegistration (context, registration) {
       // const data = await this.$api.getRegistration(memberId)
-      context.commit('SET_VETERAN', registration)
+      context.commit('SET_VETERAN', registration.veteran)
+      context.commit('SET_GUESTS', registration.guests)
     },
     async saveRegistration (context, registration) {
       localStorage.registration = context.state
