@@ -21,3 +21,5 @@ yarn-error.log*
 *.sw?
 
 data.js
+dbinfo.php
+vendor

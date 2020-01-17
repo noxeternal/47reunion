@@ -132,10 +132,18 @@ export default {
 
     }
   },
+  created () {
+    if (this.$cookies.get('member_nbr')) {
+      console.log(this.$cookies.get('member_nbr'))
+      // this.$api.test.echo('abc')
+      console.log({createdAPI: this.$api})
+    }
+  },
   mounted () {
     if(localStorage.registration) {
       this.$store.dispatch('loadRegistration', localStorage.registration)
     }
+    console.log({mountedAPI: this.$api})
   }
 };
 </script>
