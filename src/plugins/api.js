@@ -9,7 +9,7 @@ const api = new Proxy({}, {
 function APIProxy (module, axios) {
   return new Proxy({
     async call (method, params) {
-      const { data: { success, result, error } } = await axios.post('/api', { jsonrpc: '2.0', method, params })
+      const { data: { success, result, error } } = await window.axios.post('/api', { jsonrpc: '2.0', method, params })
       if (success) {
         return result
       } else {
