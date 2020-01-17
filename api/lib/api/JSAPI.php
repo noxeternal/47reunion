@@ -10,6 +10,7 @@ define('JWT_DURATION', 1 * 25 * 60 * 60); // 1 hour
 abstract class JSAPI
 {
   protected $noAuth = ['methods'];
+  protected $token;
 
   function __construct($method, $params)
   {
@@ -69,6 +70,7 @@ abstract class JSAPI
       }
       return true;
     } catch (\Exception $e) {
+      $e;
     }
     return false;
   }

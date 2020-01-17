@@ -1,7 +1,9 @@
 <template>
   <v-card>
     <v-card-title class="secondary">
-      <v-icon class="mr-2">mdi-account-badge-horizontal</v-icon>
+      <v-icon class="mr-2">
+        mdi-account-badge-horizontal
+      </v-icon>
       Badge
     </v-card-title>
     <v-card-text>
@@ -11,19 +13,31 @@
             <v-img src="img/47logo.png" contain max-height="55" class="ml-6" />
           </v-col>
           <v-col cols="6">
-            <div class="text-center subtitle-1">47<sup>th</sup> Infantry Regiment</div>
-            <div class="text-center subtitle-1">2020 Reunion</div>
+            <div class="text-center subtitle-1">
+              47<sup>th</sup> Infantry Regiment
+            </div>
+            <div class="text-center subtitle-1">
+              2020 Reunion
+            </div>
           </v-col>
           <v-col cols="3">
             <v-img src="img/47logo.png" contain max-height="55" class="mr-6" />
           </v-col>
         </v-row>
         <div class="text-center">
-          <div class="title font-weight-black">{{ veteran.badgeName || (`${veteran.firstName || '&nbsp;'} ${veteran.lastName || '&nbsp;'}`)}}</div>
-          <div class="font-weight-black">{{ displayUnits || '&nbsp;' }}</div>
-          <div class="font-weight-black mb-2">{{ displayDates }}</div>
+          <div class="title font-weight-black">
+            {{ veteran.badgeName || (`${veteran.firstName || '&nbsp;'} ${veteran.lastName || '&nbsp;'}`) }}
+          </div>
+          <div class="font-weight-black">
+            {{ displayUnits || '&nbsp;' }}
+          </div>
+          <div class="font-weight-black mb-2">
+            {{ displayDates }}
+          </div>
           <div>{{ veteran.homeTown || '&nbsp;' }}</div>
-          <div class="pb-2">{{ displayEvents || '&nbsp;' }}</div>
+          <div class="pb-2">
+            {{ displayEvents || '&nbsp;' }}
+          </div>
         </div>
       </v-sheet>
     </v-card-text>
@@ -55,6 +69,8 @@ export default {
         Object.keys(this.veteran.units).reduce((s, k) => rval.push(...this.veteran.units[k]), [])
         return rval.join(' ')
       }
+
+      return null;
     },
     displayDates () {
       const rval = this.veteran.dates.reduce((s, d) => `${s}${d.fromMonth} ${d.fromYear}-${d.toMonth} ${d.toYear}, `, '')
@@ -70,6 +86,8 @@ export default {
         })
         return rval.join(', ')
       }
+      
+      return null;
     }
   }
 }

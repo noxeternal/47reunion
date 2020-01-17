@@ -7,23 +7,36 @@
       <v-spacer />
       <div>
         <!-- <span>Reunion Registration</span><span>April 22-26, 2020</span><br> -->
-        <v-icon class="mr-1">mdi-view-list</v-icon>
+        <v-icon class="mr-1">
+          mdi-view-list
+        </v-icon>
         <span class="ul pointer" @click="showEvents=!showEvents">View Schedule of Events</span><br>
-        <v-icon class="mr-1">mdi-account-group</v-icon>
+        <v-icon class="mr-1">
+          mdi-account-group
+        </v-icon>
         <span class="ul pointer" @click="showAttendance=!showAttendance">View "Who's Going"</span>
       </div>
     </v-app-bar>
 
     <v-content>
       <v-overlay v-if="showEvents" opacity="1">
-        <schedule class="schedule" :show="showEvents" v-on:hide="showEvents=false" max-height="90vh" />
+        <schedule class="schedule" :show="showEvents" @hide="showEvents=false" max-height="90vh" />
       </v-overlay>
       <v-row v-if="changed" class="warning" justify="center">
         <v-col cols="6" class="text-center">
-          <div class="headline">This information has not been saved</div>
+          <div class="headline">
+            This information has not been saved
+          </div>
         </v-col>
-        <v-col cols="2">
-          <v-btn class="primary" @click="save()">Save</v-btn>
+        <v-col cols="1">
+          <v-btn class="primary" @click="save()">
+            Save
+          </v-btn>
+        </v-col>
+        <v-col cols="1">
+          <v-btn class="accent" @click="load()">
+            Load
+          </v-btn>
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -47,7 +60,7 @@
       </v-row>
     </v-content>
     <v-overlay opacity="0.90" :value="showOverlay">
-      <v-progress-circular v-if="showLoading" indeterminate :width="15" :size="150" color="accent"></v-progress-circular>
+      <v-progress-circular v-if="showLoading" indeterminate :width="15" :size="150" color="accent" />
     </v-overlay>
   </v-app>
 </template>
@@ -107,6 +120,7 @@ export default {
     showLoading: false,
     showEvents: false,
     changed: true,
+    member_nbr: 0,
     _TEST_DATA_: {}
   }),
   methods: {
@@ -116,34 +130,32 @@ export default {
       this.showOverlay = true
       this.showLoading = true
       const record = {
+        memberID: this.member_nbr,
         veteran: this.$store.state.veteran,
         guests: this.$store.state.guests
       }
       this._TEST_DATA_ = record
       try {
-        this.$axios.post('/api', record)
+        this.$api.records.save(record)
       } catch (err) {
         if(err) console.log(err)
       }
       setTimeout(() => { this.showLoading = false }, 1000)
       setTimeout(() => { this.showOverlay = false }, 1000)
     },
-    load () {
-
+    async load () {
+      console.log(this.member_nbr)
+      const o = await this.$api.records.get(this.member_nbr)
+      console.log(o)
     }
   },
   created () {
-    if (this.$cookies.get('member_nbr')) {
-      console.log(this.$cookies.get('member_nbr'))
-      // this.$api.test.echo('abc')
-      console.log({createdAPI: this.$api})
-    }
   },
-  mounted () {
-    if(localStorage.registration) {
-      this.$store.dispatch('loadRegistration', localStorage.registration)
+  async mounted () {
+    if (this.$cookies.get('member_nbr')) {
+      this.member_nbr = this.$cookies.get('member_nbr')
+      this.token = await this.$api.auth.login(this.member_nbr)
     }
-    console.log({mountedAPI: this.$api})
   }
 };
 </script>

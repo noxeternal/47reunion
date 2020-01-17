@@ -1,20 +1,30 @@
 <template>
   <v-card>
     <v-card-title class="secondary">
-      <v-icon class="mr-2">mdi-format-list-checks</v-icon>
+      <v-icon class="mr-2">
+        mdi-format-list-checks
+      </v-icon>
       Events
       <v-spacer />
-      <v-btn icon @click="selectAll()" title="Select All"><v-icon small>mdi-checkbox-multiple-marked</v-icon></v-btn>
-      <v-btn icon @click="selectNone()" title="Select None"><v-icon small>mdi-checkbox-multiple-blank</v-icon></v-btn>
+      <v-btn icon @click="selectAll()" title="Select All">
+        <v-icon small>
+          mdi-checkbox-multiple-marked
+        </v-icon>
+      </v-btn>
+      <v-btn icon @click="selectNone()" title="Select None">
+        <v-icon small>
+          mdi-checkbox-multiple-blank
+        </v-icon>
+      </v-btn>
     </v-card-title>
     <v-card-text>
       <v-row>
-        <v-checkbox label="Reunion Registration" readonly :value="true" v-model="boolT" class=" my-1"></v-checkbox>
+        <v-checkbox label="Reunion Registration" readonly :value="true" v-model="boolT" class=" my-1" />
         <v-spacer />
         <span class="amt ma-2">$25.00</span>
       </v-row>
       <v-row v-for="(event, index) in events" :key="index">
-        <v-checkbox multiple @change="saveVeteran()" :label="event.name" v-model="veteran.events" :value="event.name" class="my-1"></v-checkbox>
+        <v-checkbox multiple @change="saveVeteran()" :label="event.name" v-model="veteran.events" :value="event.name" class="my-1" />
         <v-spacer />
         <span class="amt ma-2">${{ event.amt.toFixed(2) }}</span>
       </v-row>

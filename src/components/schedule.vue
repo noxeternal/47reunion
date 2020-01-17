@@ -3,7 +3,11 @@
     <v-card-title>
       Schedule of Events: April 21-26, 2020
       <v-spacer />
-      <v-btn icon @click="$emit('hide')"><v-icon color="red">mdi-close-box</v-icon></v-btn>
+      <v-btn icon @click="$emit('hide')">
+        <v-icon color="red">
+          mdi-close-box
+        </v-icon>
+      </v-btn>
     </v-card-title>
     <v-card-text>
       <table>
@@ -15,9 +19,17 @@
         </tr>
         <tr v-for="(item, index) in schedule" :key="index">
           <td>{{ item.day }} {{ item.date }}</td>
-          <td class="text-center">{{ item.time }}</td>
-          <td><div v-for="(event, index2) in item.event" :key="index2">{{ event }}</div></td>
-          <td class="text-right">{{ item.location }}</td>
+          <td class="text-center">
+            {{ item.time }}
+          </td>
+          <td>
+            <div v-for="(event, index2) in item.event" :key="index2">
+              {{ event }}
+            </div>
+          </td>
+          <td class="text-right">
+            {{ item.location }}
+          </td>
         </tr>
       </table>
     </v-card-text>

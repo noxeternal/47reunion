@@ -2,20 +2,21 @@
 
 namespace api;
 
-class records extends JSAPI {
-  function __construct ($method, $params) {
+class records extends JSAPI
+{
+  function __construct($method, $params)
+  {
     $this->noAuth = [];
     parent::__construct($method, $params);
   }
 
-  function get () :array {
-    $data = new \Data();
-    return [];
+  function get($member_nbr): array
+  {
+    return \Data::get($member_nbr);
   }
 
-  function save () : bool {
-    $data = new \Data();
-    return false;
+  function save($record): bool
+  {
+    return \Data::save($record);
   }
-
 }

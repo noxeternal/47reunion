@@ -1,7 +1,9 @@
 <template>
   <v-card>
     <v-card-title class="secondary">
-      <v-icon class="mr-2">mdi-cash-usd</v-icon>Amount Due<v-spacer />
+      <v-icon class="mr-2">
+        mdi-cash-usd
+      </v-icon>Amount Due<v-spacer />
     </v-card-title>
     <v-card-text class="pt-2">
       <template>
@@ -23,7 +25,7 @@
             {{ guest.sum.toFixed(2) }}
           </div>
         </v-row>
-        <hr class="mb-3" />
+        <hr class="mb-3">
         <v-row>
           <div class="ma-2">
             Total Due:

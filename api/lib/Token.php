@@ -1,6 +1,7 @@
 <?php
 
-class Token {
+class Token
+{
   public $iss;
   public $aud;
   public $iat;
@@ -8,7 +9,6 @@ class Token {
 
   public $valid;
   public $id;
-  public $user;
-  public $role;
-  public $rehash;
+  public $firstName;
+  public $lastName;
 }
