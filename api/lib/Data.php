@@ -2,7 +2,7 @@
 
 class Data
 {
-  private \MySQLi $db;
+  private $db;
 
   public static function save($record)
   {

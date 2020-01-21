@@ -6,7 +6,7 @@ class records extends JSAPI
 {
   function __construct($method, $params)
   {
-    $this->noAuth = [];
+//    $this->noAuth = [];
     parent::__construct($method, $params);
   }
 

@@ -28,7 +28,7 @@ class RPCServer
         $this->class->__headers();
       }
       $this->success($result);
-    } catch (Throwable $e) {
+    } catch (Exception $e) {
       $this->fail($e->getCode(), $e->getMessage(), null, $e->getTrace());
     }
   }

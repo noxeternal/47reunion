@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', true);
+ini_set('error_reporting', E_ALL);
+
 $env = Dotenv\Dotenv::createImmutable(__DIR__);
 $env->load();
 
