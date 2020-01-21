@@ -35,6 +35,7 @@ class Auth
 
   function getUser($token)
   {
+    return $token;
     $return = new User();
     $return->valid = true;
     $return->id = $token->id;
