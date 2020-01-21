@@ -5,10 +5,6 @@
         mdi-account-plus
       </v-icon>
       Guest Information ({{ guests.length }})
-      <!-- v-spacer />
-      <v-btn icon title="Add Guest" @click="addGuest()">
-        <v-icon>mdi-plus-box</v-icon>
-      </v-btn -->
     </v-card-title>
     <v-card-text class="pt-2">
       <template v-if="guests.length > 0">

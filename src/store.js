@@ -44,13 +44,16 @@ export default new Vuex.Store({
     DEL_GUEST (state, payload) {
       const guestIndex = state.guests.indexOf(payload)
       Vue.delete(state.guests, guestIndex)
+    },
+    LOAD_RECORD (state, payload) {
+      state.veteran = payload.veteran
+      state.guests = payload.guests
     }
   },
   actions: {
     async loadRegistration (context, registration) {
       // const data = await this.$api.getRegistration(memberId)
-      context.commit('SET_VETERAN', registration.veteran)
-      context.commit('SET_GUESTS', registration.guests)
+      context.commit('LOAD_RECORD', registration)
     },
     async saveRegistration (context, registration) {
       localStorage.registration = context.state

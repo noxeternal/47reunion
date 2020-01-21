@@ -94,9 +94,9 @@ abstract class JSAPI
     header("X-Token: {$jwt}");
   }
 
-  function echo($data)
+  function ping($data)
   {
-    return $data;
+    return ['pong' => $data];
   }
 
   protected function updateToken()

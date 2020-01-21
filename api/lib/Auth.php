@@ -2,7 +2,7 @@
 
 class Auth
 {
-  private \MySQLi $db;
+  private $db;
 
   function __construct()
   {

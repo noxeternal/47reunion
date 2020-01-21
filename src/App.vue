@@ -124,7 +124,7 @@ export default {
     _TEST_DATA_: {}
   }),
   methods: {
-    dumpStore () {console.log({veteran: this.$store.state.veteran, guests: this.$store.state.guest})},
+    dumpStore () {console.log({veteran: this.$store.state.veteran, guests: this.$store.state.guests})},
     showAttendance () {},
     save () { 
       this.showOverlay = true
@@ -135,6 +135,8 @@ export default {
         guests: this.$store.state.guests
       }
       this._TEST_DATA_ = record
+      
+      // TODO: redo try/catch for async/await
       try {
         this.$api.records.save(record)
       } catch (err) {
@@ -144,9 +146,13 @@ export default {
       setTimeout(() => { this.showOverlay = false }, 1000)
     },
     async load () {
-      console.log(this.member_nbr)
-      const o = await this.$api.records.get(this.member_nbr)
-      console.log(o)
+      const record = await this.$api.records.get(this.member_nbr)
+      if (record.veteran && record.guests) {
+        this.$store.commit('LOAD_RECORD', record)
+      } else {
+
+      }
+
     }
   },
   created () {
@@ -155,6 +161,8 @@ export default {
     if (this.$cookies.get('member_nbr')) {
       this.member_nbr = this.$cookies.get('member_nbr')
       this.token = await this.$api.auth.login(this.member_nbr)
+      const record = await this.$api.records.get(this.member_nbr)
+      this.$store.commit('LOAD_RECORD', record)
     }
   }
 };

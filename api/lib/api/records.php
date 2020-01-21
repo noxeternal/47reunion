@@ -10,12 +10,12 @@ class records extends JSAPI
     parent::__construct($method, $params);
   }
 
-  function get($member_nbr): array
+  function get($member_nbr)
   {
     return \Data::get($member_nbr);
   }
 
-  function save($record): bool
+  function save($record)
   {
     return \Data::save($record);
   }

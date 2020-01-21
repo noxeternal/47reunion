@@ -2,7 +2,7 @@
 
 namespace api;
 
-class auth extends JSAPI implements \interfaces\auth
+class auth extends JSAPI
 {
   function __construct($method, $params)
   {
@@ -38,7 +38,7 @@ class auth extends JSAPI implements \interfaces\auth
     }
   }
 
-  function login($member_nbr): array
+  function login($member_nbr)
   {
     $auth = $this->Auth->login($member_nbr);
 
@@ -60,7 +60,7 @@ class auth extends JSAPI implements \interfaces\auth
     }
   }
 
-  function logout(): bool
+  function logout()
   {
     return $this->Auth->logout();
 
@@ -68,12 +68,12 @@ class auth extends JSAPI implements \interfaces\auth
     $this->updateToken();
   }
 
-  function getUser(): \User
+  function getUser()
   {
     return $this->Auth->getUser($this->token);
   }
 
-  function test($data): array
+  function test($data)
   {
     return is_array($data) ? $data : [$data];
   }
