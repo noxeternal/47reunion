@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-toolbar-title class="headline" @click="dumpStore()">
+      <v-toolbar-title class="headline">
         47<sup>th</sup> Infantry Regiment Association - 2020 Reunion
       </v-toolbar-title>
       <v-spacer />
@@ -16,7 +16,8 @@
         <span class="ul pointer" @click="showAttendance=!showAttendance">View "Who's Going"</span>
       </div>
     </v-app-bar>
-    <v-content :class="{nopad: !changed}">
+
+    <v-content :class="{nopad: !changed}" class="floaty">
       <v-row class="warning" justify="center">
         <v-col cols="6" class="text-center">
           <div class="headline">
@@ -36,7 +37,7 @@
       </v-row>
     </v-content>
 
-    <v-content class="nopad">
+    <v-content :class="{dblpad: changed}">
       <v-overlay v-if="showEvents" opacity="1">
         <schedule class="schedule" :show="showEvents" @hide="showEvents=false" max-height="90vh" />
       </v-overlay>
@@ -72,6 +73,15 @@
 }
 .nopad { 
   padding: 0!important; 
+}
+.dblpad { 
+  padding-top: 128px!important; 
+}
+.floaty {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index:3;
 }
 .pointer {
   cursor: pointer;
@@ -131,11 +141,7 @@ export default {
     _TEST_DATA_: {}
   }),
   methods: {
-    dumpStore () {console.log({veteran: this.$store.state.veteran, guests: this.$store.state.guests})},
     showAttendance () {},
-    toggleChanged () {
-      this.changed = !this.changed
-    },
     async save () { 
       this.showOverlay = true
       this.showLoading = true
@@ -164,15 +170,12 @@ export default {
       const record = await this.$api.records.get(this.member_nbr)
       if (record && record.veteran && record.guests) {
         this.$store.commit('LOAD_RECORD', record)
-        sessionStorage.record = record
-      } else {
-        
       }
+      sessionStorage.record = record
 
       setTimeout(() => { 
         this.showLoading = false
         this.showOverlay = false
-        this.changed = false
       }, 100)
     }
   },
