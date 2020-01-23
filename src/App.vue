@@ -2,11 +2,10 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline" @click="dumpStore()">
-        47<sup>th</sup> Infantry Regiment Association
+        47<sup>th</sup> Infantry Regiment Association - 2020 Reunion
       </v-toolbar-title>
       <v-spacer />
       <div>
-        <!-- <span>Reunion Registration</span><span>April 22-26, 2020</span><br> -->
         <v-icon class="mr-1">
           mdi-view-list
         </v-icon>
@@ -17,12 +16,8 @@
         <span class="ul pointer" @click="showAttendance=!showAttendance">View "Who's Going"</span>
       </div>
     </v-app-bar>
-
-    <v-content>
-      <v-overlay v-if="showEvents" opacity="1">
-        <schedule class="schedule" :show="showEvents" @hide="showEvents=false" max-height="90vh" />
-      </v-overlay>
-      <v-row v-if="changed" class="warning" justify="center">
+    <v-content :class="{nopad: !changed}">
+      <v-row class="warning" justify="center">
         <v-col cols="6" class="text-center">
           <div class="headline">
             This information has not been saved
@@ -35,10 +30,16 @@
         </v-col>
         <v-col cols="1">
           <v-btn class="accent" @click="load()">
-            Load
+            Reset
           </v-btn>
         </v-col>
       </v-row>
+    </v-content>
+
+    <v-content class="nopad">
+      <v-overlay v-if="showEvents" opacity="1">
+        <schedule class="schedule" :show="showEvents" @hide="showEvents=false" max-height="90vh" />
+      </v-overlay>
       <v-row justify="center">
         <v-col cols="4">
           <veteran />
@@ -69,6 +70,9 @@
 .ul{
   text-decoration: underline;
 }
+.nopad { 
+  padding: 0!important; 
+}
 .pointer {
   cursor: pointer;
 }
@@ -98,6 +102,9 @@
 </style>
 
 <script>
+import { mapState } from 'vuex'
+import _  from 'lodash'
+
 import veteran from './components/veteran';
 import events from './components/events';
 import guest from './components/guest';
@@ -126,7 +133,10 @@ export default {
   methods: {
     dumpStore () {console.log({veteran: this.$store.state.veteran, guests: this.$store.state.guests})},
     showAttendance () {},
-    save () { 
+    toggleChanged () {
+      this.changed = !this.changed
+    },
+    async save () { 
       this.showOverlay = true
       this.showLoading = true
       const record = {
@@ -138,21 +148,30 @@ export default {
       
       // TODO: redo try/catch for async/await
       try {
-        this.$api.records.save(record)
+        await this.$api.records.save(record)
       } catch (err) {
         if(err) console.log(err)
       }
-      setTimeout(() => { this.showLoading = false }, 1000)
-      setTimeout(() => { this.showOverlay = false }, 1000)
+      setTimeout(() => { 
+        this.showLoading = false
+        this.showOverlay = false
+        this.changed = false
+      }, 100)
     },
     async load () {
+      this.showOverlay = true
+      this.showLoading = true
       const record = await this.$api.records.get(this.member_nbr)
       if (record.veteran && record.guests) {
         this.$store.commit('LOAD_RECORD', record)
-      } else {
-
+        sessionStorage.record = record
       }
 
+      setTimeout(() => { 
+        this.showLoading = false
+        this.showOverlay = false
+        this.changed = false
+      }, 100)
     }
   },
   created () {
@@ -161,9 +180,14 @@ export default {
     if (this.$cookies.get('member_nbr')) {
       this.member_nbr = this.$cookies.get('member_nbr')
       this.token = await this.$api.auth.login(this.member_nbr)
-      const record = await this.$api.records.get(this.member_nbr)
-      this.$store.commit('LOAD_RECORD', record)
+      this.load()
     }
+  },
+  computed: {
+    ...mapState(['veteran','guest'])
+  },
+  watch: {
+    veteran: function (v1, v2) { this.changed = true }
   }
-};
+}
 </script>

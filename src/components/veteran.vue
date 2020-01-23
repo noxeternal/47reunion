@@ -109,10 +109,10 @@ export default {
     years: () => Array.from({length: 8}, (v, k) => k + 65)
   },
   async mounted () {
-    const member_nbr = this.$cookies.get('member_nbr')
-    const user = await this.$api.auth.getUser(member_nbr)
-    this.veteran.firstName = user.firstName
-    this.veteran.lastName = user.lastName
+    // const member_nbr = this.$cookies.get('member_nbr')
+    // const user = await this.$api.auth.getUser(member_nbr)
+    // this.veteran.firstName = user.firstName
+    // this.veteran.lastName = user.lastName
   }
 
 };

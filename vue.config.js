@@ -7,11 +7,8 @@ module.exports = {
     port: 3000,
     proxy: {
       '^/api': {
-        target: process.env.API_URL || 'http://localhost:3001',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': '' // Strip /api from path
-        }
+        target: process.env.API_URL || 'https://47inf.org/',
+        changeOrigin: true
       }
     }
   }
