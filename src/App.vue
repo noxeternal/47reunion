@@ -162,9 +162,11 @@ export default {
       this.showOverlay = true
       this.showLoading = true
       const record = await this.$api.records.get(this.member_nbr)
-      if (record.veteran && record.guests) {
+      if (record && record.veteran && record.guests) {
         this.$store.commit('LOAD_RECORD', record)
         sessionStorage.record = record
+      } else {
+        
       }
 
       setTimeout(() => { 
@@ -180,14 +182,20 @@ export default {
     if (this.$cookies.get('member_nbr')) {
       this.member_nbr = this.$cookies.get('member_nbr')
       this.token = await this.$api.auth.login(this.member_nbr)
+      const user = await this.$api.auth.getUser(this.member_nbr)
+      this.veteran.firstName = user.firstName
+      this.veteran.lastName = user.lastName
       this.load()
+    } else {
+      window.location.href="https://47inf.org/login.php?mode=registration"
     }
   },
   computed: {
     ...mapState(['veteran','guest'])
   },
   watch: {
-    veteran: function (v1, v2) { this.changed = true }
+    veteran: function (v1, v2) { this.changed = true },
+    guest: function (v1, v2) { this.changed = true }
   }
 }
 </script>

@@ -107,8 +107,8 @@ abstract class JSAPI
   private function generateToken()
   {
     $data = $this->token;
-    $data->iss = "http://47inf.org";
-    $data->aud = "http://47inf.org";
+    $data->iss = "https://47inf.org";
+    $data->aud = "https://47inf.org";
     $data->iat = time();
     $data->exp = time() + JWT_DURATION;
     return JWT::encode($data, JWT_SECRET);
