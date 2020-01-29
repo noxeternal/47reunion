@@ -176,6 +176,7 @@ export default {
       setTimeout(() => { 
         this.showLoading = false
         this.showOverlay = false
+        this.changed = false
       }, 100)
     }
   },
