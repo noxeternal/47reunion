@@ -191,15 +191,21 @@ export default {
       this.veteran.lastName = user.lastName
       this.load()
     } else {
-      window.location.href="https://47inf.org/login.php?mode=registration"
+      // window.location.href="https://47inf.org/login.php?mode=registration"
     }
   },
   computed: {
     ...mapState(['veteran','guest'])
   },
   watch: {
-    veteran: function (v1, v2) { this.changed = true },
-    guest: function (v1, v2) { this.changed = true }
+    veteran: {
+      handler: function (v1, v2) { this.changed = true },
+      deep: true
+    },
+    guest: {
+      handler: function (v1, v2) { this.changed = true },
+      deep: true
+    }
   }
 }
 </script>

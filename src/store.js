@@ -12,7 +12,7 @@ export default new Vuex.Store({
       lastName: "",
       homeTown: '',
       badgeName: "",
-      units: [],
+      units: {},
       other: '',
       dates: [{fromMonth:'Jan', fromYear: 65, toMonth: 'Jan', toYear: 65}]
     },
