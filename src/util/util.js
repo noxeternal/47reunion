@@ -14,9 +14,9 @@ export default {
       cellPhone: '',
       emailAddress: '',
 
-      reunionRegQty: reunionRegQty
-      reunionRegBox: X
-      reunionRegAmount: reunionRegAmount
+      reunionRegQty: '',
+      reunionRegBox: '',
+      reunionRegAmount: '',
 
       transMiscQty: '',
       transMiscBox: '',
