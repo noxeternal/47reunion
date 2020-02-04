@@ -19,7 +19,7 @@ export default {
       lastName: fd.veteran.lastName,
       firstName: fd.veteran.firstName,
       badgeName: fd.veteran.badgeName,
-      units: unitString(fd.veteran.units),
+      units: Object.values(fd.veteran.units).join(' '),
       dates: fd.veteran.dates.map(d => `${d.fromMonth} ${d.fromYear} - ${d.toMonth} ${d.toYear}`).join(', '),
       streetAddress: '',
       city: '',
@@ -46,7 +46,6 @@ export default {
 }
 
 function genGuest(guest = { events: [] }) {
-  console.log(guest)
   return {
     guestBadgeName: guest.badge || '',
     guestName: guest.name || '',
@@ -70,12 +69,4 @@ function genEventData (pre, event, { events, veteran: vet, guests }) {
     [pre + 'Box']: box ? 'X' : '',
     [pre + 'Amount']: amount,
   }
-}
-
-function unitString (d) {
-  let o = ''
-  for (const i in d) {
-    o = o + d[i].join(' ')
-  }
-  return o
 }
