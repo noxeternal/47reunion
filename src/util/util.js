@@ -21,18 +21,23 @@ export default {
       transMiscQty: '',
       transMiscBox: '',
       transMiscAmount: '',
+
       golfScrambleQty: '',
       golfScrambleBox: '',
       golfScrambleAmount: '',
+      
       poolsideCookoutQty: '',
       poolsideCookoutBox: '',
       poolsideCookoutAmount: '',
+      
       dinnerQty: '',
       dinnerBox: '',
       dinnerAmount: '',
+      
       volContributionQty: '',
       volContributionBox: '',
       volContributionAmount: '',
+      
       totalAmount: '',
 
       guestBadgeName: '',
@@ -41,8 +46,19 @@ export default {
       transportationEtc: '',
       dates: '',
       poolsideCookout: '',
-      golfScramble: ''
-    }
+      golfScramble: '',
+
+      otherGuests: [
+        {
+          guestBadgeName: '',
+          guestName: '',
+          regimentalDinner: '',
+          transportationEtc: '',
+          dates: '',
+          poolsideCookout: '',
+          golfScramble: ''  
+        }
+      ]
 
   }
 }
