@@ -222,14 +222,14 @@ export default {
     }
   },
   computed: {
-    ...mapState(['veteran','guest'])
+    ...mapState(['veteran','guests'])
   },
   watch: {
     veteran: {
       handler: function (v1, v2) { this.changed = true },
       deep: true
     },
-    guest: {
+    guests: {
       handler: function (v1, v2) { this.changed = true },
       deep: true
     }
