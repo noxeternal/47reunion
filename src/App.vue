@@ -34,6 +34,11 @@
             Reset
           </v-btn>
         </v-col>
+        <v-col cols="1">
+          <v-btn class="accent" @click="genPDF()">
+            PDF
+          </v-btn>
+        </v-col>
       </v-row>
     </v-content>
 
@@ -64,6 +69,20 @@
     <v-overlay opacity="0.90" :value="showOverlay">
       <v-progress-circular v-if="showLoading" indeterminate :width="15" :size="150" color="accent" />
     </v-overlay>
+    <v-dialog persistent fullscreen full-width v-if="pdf" :value="true">
+      <v-card>
+        <v-card-text style="padding: 0">
+          <v-layout row>
+            <iframe class="pdfview":src="pdf" />
+          </v-layout>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text @click="pdf = null">Close</v-btn>
+          <v-spacer />
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -108,7 +127,11 @@
 .v-text-field__details {
   display: none;
 }
-
+iframe.pdfview {
+  height: calc(100vh - 52px);
+  border: 0px;
+  flex: 1;
+}
 </style>
 
 <script>
@@ -121,6 +144,8 @@ import guest from './components/guest';
 import total from './components/total';
 import schedule from './components/schedule';
 import badge from './components/badge';
+
+import utils from './util/util'
 
 export default {
   name: 'App',
@@ -138,9 +163,11 @@ export default {
     showEvents: false,
     changed: true,
     member_nbr: 0,
-    _TEST_DATA_: {}
+    _TEST_DATA_: {},
+    pdf: null,
   }),
   methods: {
+    ...utils,
     showAttendance () {},
     async save () { 
       this.showOverlay = true

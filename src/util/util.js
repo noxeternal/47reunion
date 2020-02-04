@@ -1,11 +1,26 @@
+import Axios from "axios"
+import config from './config.json'
+
 export default {
-  buildMailer: (fd) => {
-    mailer = {
+  async genPDF () {
+    const records = [{
+      form: this.buildMailer(this.$store.state)
+    }]
+    const { data } = await this.$axios.post('/pdf', {
+      config,
+      records
+    },{
+      responseType: 'blob'
+    })
+    this.pdf = URL.createObjectURL(data)
+  },
+  buildMailer (fd) {
+    const data = {
       lastName: fd.veteran.lastName,
       firstName: fd.veteran.firstName,
       badgeName: fd.veteran.badgeName,
-      units: unitString(fd.veterans.units),
-      
+      units: unitString(fd.veteran.units),
+      dates: fd.veteran.dates.map(d => `${d.fromMonth} ${d.fromYear} - ${d.toMonth} ${d.toYear}`).join(', '),
       streetAddress: '',
       city: '',
       state: '',
@@ -13,53 +28,47 @@ export default {
       homePhone: '',
       cellPhone: '',
       emailAddress: '',
-
-      reunionRegQty: '',
-      reunionRegBox: '',
-      reunionRegAmount: '',
-
-      transMiscQty: '',
-      transMiscBox: '',
-      transMiscAmount: '',
-
-      golfScrambleQty: '',
-      golfScrambleBox: '',
-      golfScrambleAmount: '',
-      
-      poolsideCookoutQty: '',
-      poolsideCookoutBox: '',
-      poolsideCookoutAmount: '',
-      
-      dinnerQty: '',
-      dinnerBox: '',
-      dinnerAmount: '',
-      
+      ...genEventData('reunionReg', 'Reunion Registration', fd),
+      ...genEventData('transMisc', 'Transportation & Misc', fd),
+      ...genEventData('golfScramble', 'Golf Scramble', fd),
+      ...genEventData('poolsideCookout', 'Poolside Cookout', fd),
+      ...genEventData('dinner', 'Regimental Dinner', fd),
       volContributionQty: '',
       volContributionBox: '',
       volContributionAmount: '',
-      
-      totalAmount: '',
+      ...genGuest(fd.guests[0]),
+      otherGuests: fd.guests.slice(1).map(genGuest)
+    }
+    
+    data.totalAmount = data.reunionRegAmount + data.transMiscAmount + data.golfScrambleAmount + data.poolsideCookoutAmount + data.dinnerAmount
+    return data
+  }
+}
 
-      guestBadgeName: '',
-      guestName: '',
-      regimentalDinner: '',
-      transportationEtc: '',
-      dates: '',
-      poolsideCookout: '',
-      golfScramble: '',
+function genGuest(guest = { events: [] }) {
+  console.log(guest)
+  return {
+    guestBadgeName: guest.badge || '',
+    guestName: guest.name || '',
+    reunionReg: guest.events.includes('Reunion Registration') ? 'X' : '',
+    transMisc: guest.events.includes('Transportation & Misc') ? 'X' : '',
+    golfScramble: guest.events.includes('Golf Scramble') ? 'X' : '',
+    poolsideCookout: guest.events.includes('Poolside Cookout') ? 'X' : '',
+    regimentalDinner: guest.events.includes('Regimental Dinner') ? 'X' : '',
+  }
+}
 
-      otherGuests: [
-        {
-          guestBadgeName: '',
-          guestName: '',
-          regimentalDinner: '',
-          transportationEtc: '',
-          dates: '',
-          poolsideCookout: '',
-          golfScramble: ''  
-        }
-      ]
-
+function genEventData (pre, event, { events, veteran: vet, guests }) {
+  const vetAttending = vet.events.includes(event)
+  const qty = guests.filter(g => g.events.includes(event) || pre === 'reunionReg').length
+  const box = vetAttending || pre === 'reunionReg'
+  const evt = events.find(e => e.name === event) || { amt: 25 }
+  const amount = evt.amt * (qty + (box ? 1 : 0))
+  return {
+    pre: box ? 'X' : '',
+    [pre + 'Qty']: qty + '',
+    [pre + 'Box']: box ? 'X' : '',
+    [pre + 'Amount']: amount,
   }
 }
 
