@@ -21,10 +21,10 @@
       <v-row class="warning" justify="center">
         <v-col cols="6" class="text-center">
           <div class="headline">
-            This information has not been saved
+            Your information has not been saved
           </div>
         </v-col>
-        <v-col cols="1">
+        <!--v-col cols="1">
           <v-btn class="primary" @click="save()">
             Save
           </v-btn>
@@ -38,7 +38,7 @@
           <v-btn class="accent" @click="genPDF()">
             PDF
           </v-btn>
-        </v-col>
+        </v-col -->
       </v-row>
     </v-content>
 
@@ -54,6 +54,9 @@
           <events />
           <badge class="mt-2" />
         </v-col>
+        <v-col cols="2">
+          <user-menu :changed="changed" v-on:reset="reset()" v-on:save="save()" v-on:genpdf="genPDF()" />
+        </v-col>
       </v-row>
       <v-row justify="center">
         <v-col cols="8">
@@ -66,23 +69,13 @@
         </v-col>
       </v-row>
     </v-content>
+    
     <v-overlay opacity="0.90" :value="showOverlay">
       <v-progress-circular v-if="showLoading" indeterminate :width="15" :size="150" color="accent" />
     </v-overlay>
-    <v-dialog persistent fullscreen full-width v-if="pdf" :value="true">
-      <v-card>
-        <v-card-text style="padding: 0">
-          <v-layout row>
-            <iframe class="pdfview":src="pdf" />
-          </v-layout>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn text @click="pdf = null">Close</v-btn>
-          <v-spacer />
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    
+    <pdf-view :pdf="pdf" v-on:close="pdf=null" />
+
   </v-app>
 </template>
 
@@ -137,15 +130,9 @@ iframe.pdfview {
 <script>
 import { mapState } from 'vuex'
 import _  from 'lodash'
-
-import veteran from './components/veteran';
-import events from './components/events';
-import guest from './components/guest';
-import total from './components/total';
-import schedule from './components/schedule';
-import badge from './components/badge';
-
 import utils from './util/util'
+import { veteran, events, guest, total, schedule, badge, userMenu, pdfView } from './components';
+
 
 export default {
   name: 'App',
@@ -155,13 +142,15 @@ export default {
     guest,
     total,
     schedule,
-    badge
+    badge, 
+    userMenu,
+    pdfView
   },
   data: () => ({
     showOverlay: false,
     showLoading: false,
     showEvents: false,
-    changed: true,
+    changed: false,
     member_nbr: 0,
     _TEST_DATA_: {},
     pdf: null,
@@ -182,41 +171,35 @@ export default {
       // TODO: redo try/catch for async/await
       try {
         await this.$api.records.save(record)
-      } catch (err) {
-        if(err) console.log(err)
-      }
-      setTimeout(() => { 
         this.showLoading = false
         this.showOverlay = false
         this.changed = false
-      }, 100)
+      } catch (err) {
+        if(err) console.log(err)
+      }
     },
-    async load () {
+    async reset () {
       this.showOverlay = true
       this.showLoading = true
       const record = await this.$api.records.get(this.member_nbr)
       if (record && record.veteran && record.guests) {
         this.$store.commit('LOAD_RECORD', record)
       }
-      sessionStorage.record = record
-
-      setTimeout(() => { 
-        this.showLoading = false
-        this.showOverlay = false
-        this.changed = false
-      }, 100)
+      sessionStorage.record = JSON.stringify(record)
+      this.showLoading = false
+      this.showOverlay = false
+      this.changed = false
     }
   },
-  created () {
-  },
   async mounted () {
+    console.log('mounted')
     if (this.$cookies.get('member_nbr')) {
       this.member_nbr = this.$cookies.get('member_nbr')
       this.token = await this.$api.auth.login(this.member_nbr)
       const user = await this.$api.auth.getUser(this.member_nbr)
       this.veteran.firstName = user.firstName
       this.veteran.lastName = user.lastName
-      this.load()
+      // this.reset()
     } else {
       // window.location.href="https://47inf.org/login.php?mode=registration"
     }
