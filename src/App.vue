@@ -55,7 +55,7 @@
           <badge class="mt-2" />
         </v-col>
         <v-col cols="2">
-          <user-menu :changed="changed" v-on:reset="reset()" v-on:save="save()" v-on:genpdf="genPDF()" />
+          <user-menu :changed="changed" :loadingPDF="loadingPDF" @reset="reset()" @save="save()" @genpdf="genPDF()" />
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -154,6 +154,7 @@ export default {
     member_nbr: 0,
     _TEST_DATA_: {},
     pdf: null,
+    loadingPDF: false
   }),
   methods: {
     ...utils,
@@ -199,7 +200,7 @@ export default {
       const user = await this.$api.auth.getUser(this.member_nbr)
       this.veteran.firstName = user.firstName
       this.veteran.lastName = user.lastName
-      // this.reset()
+      this.reset()
     } else {
       // window.location.href="https://47inf.org/login.php?mode=registration"
     }

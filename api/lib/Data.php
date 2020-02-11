@@ -24,6 +24,6 @@ class Data
     $stmt->execute();
     $stmt->fetch();
 
-    return json_decode($json, true);
+    return json_decode($json);
   }
 }

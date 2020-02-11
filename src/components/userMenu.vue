@@ -12,7 +12,7 @@
       <v-btn width="80%" :disabled="!changed" class="ma-3 accent" @click="reset()">
         Reset
       </v-btn>
-      <v-btn width="80%" class="ma-3 accent" @click="genPDF()">
+      <v-btn width="80%" class="ma-3 accent" :loading="loadingPDF" @click="genPDF()" >
         Print
       </v-btn>
     </v-card-text>
@@ -22,12 +22,15 @@
 <script>
 export default {
   name: 'App',
-  props: { changed: Boolean },
+  props: { 
+    changed: Boolean,
+    loadingPDF: Boolean
+   },
   data: () => ({}),
   methods: {
     save () { this.$emit('save') },
     reset () { this.$emit('reset') },
-    genPDF () { this.$emit('genpdf')}
+    genPDF () { this.$emit('genpdf') }
   }
 }
 </script>

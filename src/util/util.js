@@ -3,16 +3,18 @@ import config from './config.json'
 
 export default {
   async genPDF () {
+    this.loadingPDF = true
     const records = [{
       form: this.buildMailer(this.$store.state)
     }]
-    const { data } = await this.$axios.post('/pdf', {
+    const { data } = await this.$axios.post('https://pdf.47inf.org', {
       config,
       records
     },{
       responseType: 'blob'
     })
     this.pdf = URL.createObjectURL(data)
+    this.loadingPDF = false
   },
   buildMailer (fd) {
     const data = {
