@@ -13,7 +13,4 @@
   width: 435px;
   overflow: hidden;
 }
-.frame {
-
-}
 </style>

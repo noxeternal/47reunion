@@ -48,7 +48,21 @@ export default {
     save () { this.$emit('save') },
     reset () { this.$emit('reset') },
     genPDF () { this.$emit('genpdf') },
-    makePayment () { this.showPayment = true }
+    makePayment () { this.showPayment = true },
+    handleMessage (s) { 
+      switch (s.data)   {
+        case 'closePayment':
+          this.showPayment = false;
+          break;
+        default:
+      }
+    }
+  },
+  created () {
+    window.addEventListener('message', this.handleMessage)
+  },
+  destroyed () {
+    window.removeEventListener('message', this.handleMessage)
   }
 }
 </script>
