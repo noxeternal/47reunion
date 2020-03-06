@@ -19,4 +19,8 @@ class records extends JSAPI
   {
     return \Data::save($record);
   }
+
+  function whosGoing() {
+    return \Data::getAll();
+  }
 }

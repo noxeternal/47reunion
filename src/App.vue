@@ -13,7 +13,7 @@
         <v-icon class="mr-1">
           mdi-account-group
         </v-icon>
-        <span class="ul pointer" @click="showAttendance=!showAttendance">View "Who's Going"</span>
+        <span class="ul pointer" @click="showAttendance=true">View "Who's Going"</span>
       </div>
     </v-app-bar>
 
@@ -76,6 +76,10 @@
     
     <pdf-view :pdf="pdf" v-on:close="pdf=null" />
 
+    <v-overlay opacity="0.90" :value="showAttendance">
+      <see-who v-on:close="showAttendance=false" class="fullView" />
+    </v-overlay>
+
   </v-app>
 </template>
 
@@ -120,7 +124,8 @@
 .v-text-field__details {
   display: none;
 }
-iframe.pdfview {
+iframe.pdfview,
+.fullView {
   height: calc(100vh - 52px);
   border: 0px;
   flex: 1;
@@ -131,7 +136,7 @@ iframe.pdfview {
 import { mapState } from 'vuex'
 import _  from 'lodash'
 import utils from './util/util'
-import { veteran, events, guest, total, schedule, badge, userMenu, pdfView } from './components';
+import { veteran, events, guest, total, schedule, badge, userMenu, pdfView, seeWho } from './components';
 
 
 export default {
@@ -144,12 +149,14 @@ export default {
     schedule,
     badge, 
     userMenu,
-    pdfView
+    pdfView,
+    seeWho
   },
   data: () => ({
     showOverlay: false,
     showLoading: false,
     showEvents: false,
+    showAttendance: false,
     changed: false,
     member_nbr: 0,
     _TEST_DATA_: {},
@@ -158,7 +165,6 @@ export default {
   }),
   methods: {
     ...utils,
-    showAttendance () {},
     async save () { 
       this.showOverlay = true
       this.showLoading = true
