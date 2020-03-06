@@ -1,6 +1,7 @@
 <template>
   <div>
-    <iframe src="http://dev.vm:3100" class="payment-form" scrolling="no" />
+    The payment feature is not yet online. Please check back soon.
+    <!-- <iframe src="http://dev.vm:3100" class="payment-form" scrolling="no" /> -->
   </div>
 </template>
 
