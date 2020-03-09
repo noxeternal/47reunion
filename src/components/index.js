@@ -6,6 +6,6 @@ import schedule from './schedule'
 import badge from './badge'
 import userMenu from './userMenu'
 import pdfView from './pdfView'
-import seeWho from './seeWho'
+import attendance from './attendance'
 
-export { veteran, events, guest, total, schedule, badge, userMenu, pdfView, seeWho }
+export { veteran, events, guest, total, schedule, badge, userMenu, pdfView, attendance }

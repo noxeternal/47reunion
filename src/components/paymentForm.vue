@@ -1,9 +1,11 @@
 <template>
-  <div>
-    The payment feature is not yet online. Please check back soon.<br>
-    <v-btn class="accent" @click="$emit('hideForm')">Close</v-btn>
-    <!-- <iframe src="http://dev.vm:3100" class="payment-form" scrolling="no" /> -->
-  </div>
+  <v-card>
+    <v-card-text class="text-center">
+      <div>The payment feature is not yet online. Please check back soon.</div>
+      <v-btn class="accent" @click="close()">Close</v-btn>
+      <!-- <iframe src="http://dev.vm:3100" class="payment-form" scrolling="no" /> -->
+    </v-card-text>
+  </v-card>
 </template>
 
 <style>
@@ -16,3 +18,11 @@
   overflow: hidden;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    close () { this.$emit('close') }
+  }
+ }
+</script>

@@ -77,7 +77,7 @@
     <pdf-view :pdf="pdf" v-on:close="pdf=null" />
 
     <v-overlay opacity="0.90" :value="showAttendance">
-      <see-who v-on:close="showAttendance=false" class="fullView" />
+      <attendance v-on:close="showAttendance=false" class="fullView" />
     </v-overlay>
 
   </v-app>
@@ -136,7 +136,7 @@ iframe.pdfview,
 import { mapState } from 'vuex'
 import _  from 'lodash'
 import utils from './util/util'
-import { veteran, events, guest, total, schedule, badge, userMenu, pdfView, seeWho } from './components';
+import { veteran, events, guest, total, schedule, badge, userMenu, pdfView, attendance } from './components';
 
 
 export default {
@@ -150,7 +150,7 @@ export default {
     badge, 
     userMenu,
     pdfView,
-    seeWho
+    attendance
   },
   data: () => ({
     showOverlay: false,
