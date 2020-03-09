@@ -1,9 +1,9 @@
 <template>
   <v-card>
     <v-card-text class="text-center">
-      <div>The payment feature is not yet online. Please check back soon.</div>
-      <v-btn class="accent" @click="close()">Close</v-btn>
-      <!-- <iframe src="http://dev.vm:3100" class="payment-form" scrolling="no" /> -->
+      <iframe src="http://localhost:3100" class="payment-form" scrolling="no" /> 
+      <!-- <div>The payment feature is not yet online. Please check back soon.</div>
+      <v-btn class="accent" @click="close()">Close</v-btn>-->
     </v-card-text>
   </v-card>
 </template>
@@ -13,7 +13,7 @@
   border: 0;
   margin: 0;
   padding: 0;
-  height: 480px;
+  height: 520px;
   width: 435px;
   overflow: hidden;
 }
