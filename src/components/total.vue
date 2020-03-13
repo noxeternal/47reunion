@@ -13,7 +13,7 @@
           </div>
           <v-spacer />
           <div class="amt ma-2 right-text">
-            {{ veteran.sum.toFixed(2) }}
+            ${{ veteran.sum.toFixed(2) }}
           </div>
         </v-row>
         <v-row v-for="guest in this.$store.state.guests" :key="guest.index">
@@ -22,7 +22,16 @@
           </div>
           <v-spacer />
           <div class="amt ma-2 right-text">
-            {{ guest.sum.toFixed(2) }}
+            ${{ guest.sum.toFixed(2) }}
+          </div>
+        </v-row>
+        <v-row>
+          <div class="ma-2">
+            Voluntary Contribution:
+          </div>
+          <v-spacer />
+          <div class="amt ma-2 right-text">
+            ${{ veteran.contribution.toFixed(2) }}
           </div>
         </v-row>
         <hr class="mb-3">
@@ -32,7 +41,7 @@
           </div>
           <v-spacer />
           <div class="amt ma-2 right-text">
-            {{ totalDue.toFixed(2) }}
+            ${{ totalDue().toFixed(2) }}
           </div>
         </v-row>
       </template>
@@ -45,13 +54,20 @@ import { mapState } from 'vuex';
 
 export default {
   data: () => ({}),
-  computed: {
-    ...mapState(['veteran', 'guests']),
-    totalDue() {
-      return this.veteran.sum + this.guests.reduce((c, v) => {
-          return c += v.sum;
-        }, 0)      
+  methods: {
+    guestDue () {
+      const sum = this.guests.reduce((c, v) => {
+        return c += v.sum;
+      }, 0)
+      return sum
+    },
+    totalDue () {
+      const sum = this.veteran.sum + this.veteran.contribution + Number(this.guestDue())
+      return sum
     }
+  },
+  computed: {
+    ...mapState(['veteran', 'guests'])
   }
 };
 </script>

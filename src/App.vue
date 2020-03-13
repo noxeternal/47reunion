@@ -52,6 +52,7 @@
         </v-col>
         <v-col cols="4">
           <events />
+          <contribution class="mt-2" />
           <badge class="mt-2" />
         </v-col>
         <v-col cols="2">
@@ -135,8 +136,8 @@ iframe.pdfview,
 <script>
 import { mapState } from 'vuex'
 import _  from 'lodash'
-import utils from './util/util'
-import { veteran, events, guest, total, schedule, badge, userMenu, pdfView, attendance } from './components';
+import pdfgen from './util/pdfgen'
+import { veteran, events, guest, total, schedule, badge, userMenu, pdfView, attendance, contribution } from './components';
 
 
 export default {
@@ -150,7 +151,8 @@ export default {
     badge, 
     userMenu,
     pdfView,
-    attendance
+    attendance,
+    contribution
   },
   data: () => ({
     showOverlay: false,
@@ -164,7 +166,7 @@ export default {
     loadingPDF: false
   }),
   methods: {
-    ...utils,
+    ...pdfgen,
     async save () { 
       this.showOverlay = true
       this.showLoading = true
@@ -199,7 +201,6 @@ export default {
     }
   },
   async mounted () {
-    console.log('mounted')
     if (this.$cookies.get('member_nbr')) {
       this.member_nbr = this.$cookies.get('member_nbr')
       this.token = await this.$api.auth.login(this.member_nbr)
@@ -208,7 +209,10 @@ export default {
       this.veteran.lastName = user.lastName
       this.reset()
     } else {
-      // window.location.href="https://47inf.org/login.php?mode=registration"
+      if(process.env.NODE_ENV !== 'development')
+        window.location.replace('https://47inf.org/login.php?mode=registration')
+      else
+        console.log('redirect!')
     }
   },
   computed: {

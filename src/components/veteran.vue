@@ -2,9 +2,11 @@
   <div>
     <v-card>
       <v-card-title class="secondary">
-        <v-icon class="mr-2" @click="dumpVeteran()">
+        <v-icon class="mr-2">
           mdi-account-edit
         </v-icon>Veteran Information
+        <v-spacer />
+        <span class="caption">({{ veteran.memberId }})</span>
       </v-card-title>
       <v-card-text class="pt-4">
         <v-text-field label="First Name" v-model="veteran.firstName" outlined dense />
@@ -99,7 +101,6 @@ import moment from 'moment'
 export default {
   data: () => ({}),
   methods: {
-    dumpVeteran () { console.log(this.veteran) },
     addDates () { this.veteran.dates.push({fromMonth:'Jan', fromYear:'65', toMonth: 'Jan', toYear: '65'})},
     dropDates (i) { this.veteran.dates.pop() }
   },

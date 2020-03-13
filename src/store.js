@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     veteran: {
+      memberId: 0,
       events: [],
       sum: 25,
       firstName: "",
@@ -14,7 +15,8 @@ export default new Vuex.Store({
       badgeName: "",
       units: {},
       other: '',
-      dates: [{fromMonth:'Jan', fromYear: 65, toMonth: 'Jan', toYear: 65}]
+      dates: [{fromMonth:'Jan', fromYear: 65, toMonth: 'Jan', toYear: 65}],
+      contribution: 0
     },
     guests: [],
     events: [
@@ -28,7 +30,7 @@ export default new Vuex.Store({
       Platoon: ['1st', '2nd', '3rd', '4th', 'Recon'],
       Company: ['HHC', 'A', 'B', 'C', 'D', 'E'],
       Batallion: ['2-47', '3-47', '4-47']
-    }
+    },
   },
   mutations: {
     SET_VETERAN(state, payload) {
@@ -48,6 +50,9 @@ export default new Vuex.Store({
     LOAD_RECORD (state, payload) {
       state.veteran = payload.veteran
       state.guests = payload.guests
+    },
+    UPDATE_CONTRIBUTION (state, payload) { 
+      state.veteran.contribution = Number(payload).toFixed(2)
     }
   },
   actions: {

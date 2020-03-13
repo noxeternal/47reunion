@@ -8,16 +8,19 @@
         Menu
       </v-card-title>
       <v-card-text class="text-center">
-        <v-btn width="80%" :disabled="!changed" class="ma-3 warning" @click="save()">
+        <v-btn width="80%" :disabled="!changed" class="ma-2 mt-3 accent" @click="leave()">
+          Return to<br>47inf.org
+        </v-btn>
+        <v-btn width="80%" :disabled="!changed" class="ma-2 mt-3 warning" @click="save()">
           Save
         </v-btn>
-        <v-btn width="80%" :disabled="!changed" class="ma-3 accent" @click="reset()">
+        <v-btn width="80%" :disabled="!changed" class="ma-2 accent" @click="reset()">
           Reset
         </v-btn>
-        <v-btn width="80%" class="ma-3 accent" :loading="loadingPDF" @click="genPDF()">
+        <v-btn width="80%" class="ma-2 accent" :loading="loadingPDF" @click="genPDF()">
           Print
         </v-btn>
-        <v-btn width="80%" class="ma-3 accent" @click="makePayment()">
+        <v-btn width="80%" class="ma-2 accent" @click="makePayment()">
           Pay
         </v-btn>
       </v-card-text>
@@ -40,7 +43,7 @@ export default {
   props: { 
     changed: Boolean,
     loadingPDF: Boolean
-   },
+  },
   data: () => ({
     showPayment: false
   }),
@@ -49,6 +52,9 @@ export default {
     reset () { this.$emit('reset') },
     genPDF () { this.$emit('genpdf') },
     makePayment () { this.showPayment = true },
+    leave () {
+      window.location.href = "https://47inf.org"
+    },
     handleMessage (s) { 
       switch (s.data)   {
         case 'closePayment':
