@@ -1,1 +1,1798 @@
-../../../47pdfgen/src/config.json
+{
+  "layouts": [
+    {
+      "name": "back",
+      "template": "back"
+    },
+    {
+      "name": "form",
+      "template": "form"
+    }
+  ],
+  "definitions": {
+    "form": {
+      "definitions": [
+        {
+          "type": "section",
+          "name": "root"
+        },
+        {
+          "type": "section",
+          "name": "header",
+          "section": "root",
+          "position": [
+            0,
+            650
+          ]
+        },
+        {
+          "type": "section",
+          "name": "part1",
+          "section": "root",
+          "position": [
+            0,
+            480
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "lastNameValue",
+          "position": [
+            102,
+            152
+          ],
+          "field": "lastName"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "guestNameValue",
+          "position": [
+            408,
+            152
+          ],
+          "field": "guestName"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "firstNameValue",
+          "position": [
+            102,
+            134
+          ],
+          "field": "firstName"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "guestBadgeNameValue",
+          "position": [
+            408,
+            134
+          ],
+          "field": "guestBadgeName"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "badgeNameValue",
+          "position": [
+            102,
+            116
+          ],
+          "field": "badgeName"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "unitsValue",
+          "position": [
+            102,
+            98
+          ],
+          "field": "units"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "regimentalDinnerCheckBoxValue",
+          "position": [
+            438,
+            96
+          ],
+          "field": "regimentalDinner",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "transMiscCheckBoxValue",
+          "position": [
+            581,
+            96
+          ],
+          "field": "transMisc",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "datesValue",
+          "position": [
+            102,
+            80
+          ],
+          "field": "dates"
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "poolsideCookoutCheckBoxValue",
+          "position": [
+            438,
+            78
+          ],
+          "field": "poolsideCookout",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "golfScrambleCheckBoxValue",
+          "position": [
+            581,
+            78
+          ],
+          "field": "golfScramble",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "type": "section",
+          "name": "part2",
+          "section": "root",
+          "position": [
+            0,
+            360
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "streetAddressValue",
+          "position": [
+            92,
+            72
+          ],
+          "field": "streetAddress"
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "cityValue",
+          "position": [
+            92,
+            54
+          ],
+          "field": "city"
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "stateValue",
+          "position": [
+            272,
+            54
+          ],
+          "field": "state"
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "zipValue",
+          "position": [
+            472,
+            54
+          ],
+          "field": "zip"
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "homePhoneValue",
+          "position": [
+            92,
+            36
+          ],
+          "field": "homePhone"
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "cellPhoneValue",
+          "position": [
+            378,
+            36
+          ],
+          "field": "cellPhone"
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "emailAddressValue",
+          "position": [
+            92,
+            18
+          ],
+          "field": "emailAddress"
+        },
+        {
+          "type": "section",
+          "name": "part3",
+          "section": "root",
+          "position": [
+            0,
+            20
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "reunionRegQtyValue",
+          "position": [
+            449,
+            191
+          ],
+          "field": "reunionRegQty"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "reunionRegBoxCheckBoxValue",
+          "position": [
+            420,
+            191
+          ],
+          "field": "reunionRegBox",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "reunionRegAmountValue",
+          "position": [
+            539,
+            191
+          ],
+          "field": "reunionRegAmount"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "transMiscQtyValue",
+          "position": [
+            449,
+            176
+          ],
+          "field": "transMiscQty"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "transMiscBoxCheckBoxValue",
+          "position": [
+            420,
+            176
+          ],
+          "field": "transMiscBox",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "transMiscAmountValue",
+          "position": [
+            539,
+            176
+          ],
+          "field": "transMiscAmount"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "golfScrambleQtyValue",
+          "position": [
+            449,
+            161
+          ],
+          "field": "golfScrambleQty"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "golfScrambleBoxCheckBoxValue",
+          "position": [
+            420,
+            161
+          ],
+          "field": "golfScrambleBox",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "golfScrambleAmountValue",
+          "position": [
+            539,
+            161
+          ],
+          "field": "golfScrambleAmount"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "poolsideCookoutQtyValue",
+          "position": [
+            449,
+            146
+          ],
+          "field": "poolsideCookoutQty"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "poolsideCookoutBoxCheckBoxValue",
+          "position": [
+            420,
+            146
+          ],
+          "field": "poolsideCookoutBox",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "poolsideCookoutAmountValue",
+          "position": [
+            539,
+            146
+          ],
+          "field": "poolsideCookoutAmount"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "dinnerQtyValue",
+          "position": [
+            449,
+            131
+          ],
+          "field": "dinnerQty"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "dinnerBoxCheckBoxValue",
+          "position": [
+            420,
+            131
+          ],
+          "field": "dinnerBox",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "dinnerAmountValue",
+          "position": [
+            539,
+            131
+          ],
+          "field": "dinnerAmount"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "volContributionQtyValue",
+          "position": [
+            449,
+            116
+          ],
+          "field": "volContributionQty"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "volContributionBoxCheckBoxValue",
+          "position": [
+            420,
+            116
+          ],
+          "field": "volContributionBox",
+          "font": {
+            "size": 16
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "volContributionAmountValue",
+          "position": [
+            539,
+            116
+          ],
+          "field": "volContributionAmount"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "totalAmountValue",
+          "position": [
+            539,
+            101
+          ],
+          "field": "totalAmount"
+        }
+      ],
+      "data": {
+        "lastName": "lastName",
+        "guestName": "guestName",
+        "firstName": "firstName",
+        "guestBadgeName": "guestBadgeName",
+        "badgeName": "badgeName",
+        "units": "units",
+        "regimentalDinner": "X",
+        "transMisc": "X",
+        "dates": "dates",
+        "poolsideCookout": "X",
+        "golfScramble": "X",
+        "streetAddress": "streetAddress",
+        "city": "city",
+        "state": "state",
+        "zip": "zip",
+        "homePhone": "homePhone",
+        "cellPhone": "cellPhone",
+        "emailAddress": "emailAddress",
+        "reunionRegQty": "reunionRegQty",
+        "reunionRegBox": "X",
+        "reunionRegAmount": "reunionRegAmount",
+        "transMiscQty": "transMiscQty",
+        "transMiscBox": "X",
+        "transMiscAmount": "transMiscAmount",
+        "golfScrambleQty": "golfScrambleQty",
+        "golfScrambleBox": "X",
+        "golfScrambleAmount": "golfScrambleAmount",
+        "poolsideCookoutQty": "poolsideCookoutQty",
+        "poolsideCookoutBox": "X",
+        "poolsideCookoutAmount": "poolsideCookoutAmount",
+        "dinnerQty": "dinnerQty",
+        "dinnerBox": "X",
+        "dinnerAmount": "dinnerAmount",
+        "volContributionQty": "volContributionQty",
+        "volContributionBox": "X",
+        "volContributionAmount": "volContributionAmount",
+        "totalAmount": "totalAmount"
+      }
+    },
+    "back": {
+      "fixed": true,
+      "resources": [
+        {
+          "name": "shield",
+          "type": "image",
+          "src": "data:image/jpg;base64,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",
+          "width": 150,
+          "height": 150
+        }
+      ],
+      "definitions": [
+        {
+          "type": "section",
+          "name": "root"
+        },
+        {
+          "type": "section",
+          "name": "header",
+          "section": "root",
+          "position": [
+            0,
+            650
+          ]
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "head1",
+          "position": [
+            306,
+            70
+          ],
+          "align": "center",
+          "font": {
+            "size": 18,
+            "bold": true
+          },
+          "field": "head1",
+          "lines": 2
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "head2",
+          "position": [
+            306,
+            20
+          ],
+          "align": "center",
+          "font": {
+            "size": 16
+          },
+          "field": "head2",
+          "lines": 2
+        },
+        {
+          "section": "root.header",
+          "type": "line",
+          "name": "topLine",
+          "position": [
+            0,
+            15
+          ],
+          "dest": [
+            612,
+            15
+          ],
+          "width": 2
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "regFormHeader",
+          "position": [
+            306,
+            3
+          ],
+          "align": "center",
+          "field": "regFormHeader",
+          "font": {
+            "bold": true,
+            "size": 12
+          }
+        },
+        {
+          "section": "root.header",
+          "type": "line",
+          "name": "botLine",
+          "position": [
+            0,
+            0
+          ],
+          "dest": [
+            612,
+            0
+          ]
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "leftReunion",
+          "position": [
+            70,
+            103
+          ],
+          "font": {
+            "size": 16
+          },
+          "align": "center",
+          "field": "leftReunion"
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "leftYear",
+          "position": [
+            70,
+            18
+          ],
+          "font": {
+            "size": 16
+          },
+          "align": "center",
+          "field": "leftYear"
+        },
+        {
+          "section": "root.header",
+          "type": "image",
+          "name": "leftShield",
+          "position": [
+            35,
+            31
+          ],
+          "size": [
+            70,
+            70
+          ],
+          "image": "shield"
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "rightReunion",
+          "position": [
+            542,
+            103
+          ],
+          "font": {
+            "size": 16
+          },
+          "align": "center",
+          "field": "rightReunion"
+        },
+        {
+          "section": "root.header",
+          "type": "textBlock",
+          "name": "rightYear",
+          "position": [
+            542,
+            18
+          ],
+          "font": {
+            "size": 16
+          },
+          "align": "center",
+          "field": "rightYear"
+        },
+        {
+          "section": "root.header",
+          "type": "image",
+          "name": "rightShield",
+          "position": [
+            507,
+            31
+          ],
+          "size": [
+            70,
+            70
+          ],
+          "image": "shield"
+        },
+        {
+          "type": "section",
+          "name": "part1",
+          "section": "root",
+          "position": [
+            0,
+            480
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "lastNameLabel",
+          "position": [
+            100,
+            152
+          ],
+          "field": "lastNameLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "lastNameLine",
+          "position": [
+            102,
+            150
+          ],
+          "dest": [
+            280,
+            150
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "guestNameLabel",
+          "position": [
+            406,
+            152
+          ],
+          "field": "guestNameLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "guestNameLine",
+          "position": [
+            408,
+            150
+          ],
+          "dest": [
+            586,
+            150
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "firstNameLabel",
+          "position": [
+            100,
+            134
+          ],
+          "field": "firstNameLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "firstNameLine",
+          "position": [
+            102,
+            132
+          ],
+          "dest": [
+            280,
+            132
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "guestBadgeNameLabel",
+          "position": [
+            406,
+            134
+          ],
+          "field": "guestBadgeNameLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "guestBadgeNameLine",
+          "position": [
+            408,
+            132
+          ],
+          "dest": [
+            586,
+            132
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "eventsAttending",
+          "position": [
+            449,
+            116
+          ],
+          "align": "center",
+          "font": {
+            "bold": true
+          },
+          "field": "eventsAttending"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "attendingLine",
+          "position": [
+            316,
+            114
+          ],
+          "dest": [
+            592,
+            114
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "badgeNameLabel",
+          "position": [
+            100,
+            116
+          ],
+          "field": "badgeNameLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "badgeNameLine",
+          "position": [
+            102,
+            114
+          ],
+          "dest": [
+            280,
+            114
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "unitsLabel",
+          "position": [
+            100,
+            98
+          ],
+          "field": "unitsLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "unitsLine",
+          "position": [
+            102,
+            96
+          ],
+          "dest": [
+            280,
+            96
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "regimentalDinnerLabel",
+          "position": [
+            435,
+            98
+          ],
+          "align": "right",
+          "field": "regimentalDinnerLabel"
+        },
+        {
+          "section": "root.part1",
+          "type": "box",
+          "name": "regimentalDinnerCheckBox",
+          "position": [
+            437,
+            96
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "transMiscLabel",
+          "position": [
+            578,
+            98
+          ],
+          "align": "right",
+          "field": "transMiscLabel"
+        },
+        {
+          "section": "root.part1",
+          "type": "box",
+          "name": "transMiscCheckBox",
+          "position": [
+            580,
+            96
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "datesLabel",
+          "position": [
+            100,
+            80
+          ],
+          "field": "datesLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part1",
+          "type": "line",
+          "name": "datesLine",
+          "position": [
+            102,
+            78
+          ],
+          "dest": [
+            280,
+            78
+          ]
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "poolsideCookoutLabel",
+          "position": [
+            435,
+            80
+          ],
+          "align": "right",
+          "field": "poolsideCookoutLabel"
+        },
+        {
+          "section": "root.part1",
+          "type": "box",
+          "name": "poolsideCookoutCheckBox",
+          "position": [
+            437,
+            78
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "golfScrambleLabel",
+          "position": [
+            578,
+            80
+          ],
+          "align": "right",
+          "field": "golfScrambleLabel"
+        },
+        {
+          "section": "root.part1",
+          "type": "box",
+          "name": "golfScrambleCheckBox",
+          "position": [
+            580,
+            78
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part1",
+          "type": "textBlock",
+          "name": "entryReq",
+          "position": [
+            20,
+            0
+          ],
+          "width": 572,
+          "field": "entryReq",
+          "lines": 6,
+          "align": "justify"
+        },
+        {
+          "type": "section",
+          "name": "part2",
+          "section": "root",
+          "position": [
+            0,
+            360
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "addInfHdr",
+          "position": [
+            20,
+            90
+          ],
+          "field": "addInfHdr",
+          "font": {
+            "bold": true,
+            "size": 12
+          }
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "addInfHdr",
+          "position": [
+            0,
+            88
+          ],
+          "dest": [
+            612,
+            88
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "streetAddressLabel",
+          "position": [
+            90,
+            72
+          ],
+          "field": "streetAddressLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "streetAddressLine",
+          "position": [
+            92,
+            70
+          ],
+          "dest": [
+            592,
+            70
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "cityLabel",
+          "position": [
+            90,
+            54
+          ],
+          "field": "cityLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "cityLine",
+          "position": [
+            92,
+            52
+          ],
+          "dest": [
+            170,
+            52
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "stateLabel",
+          "position": [
+            270,
+            54
+          ],
+          "field": "stateLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "stateLine",
+          "position": [
+            272,
+            52
+          ],
+          "dest": [
+            350,
+            52
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "zipLabel",
+          "position": [
+            470,
+            54
+          ],
+          "field": "zipLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "zipLine",
+          "position": [
+            472,
+            52
+          ],
+          "dest": [
+            550,
+            52
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "homePhoneLabel",
+          "position": [
+            90,
+            36
+          ],
+          "field": "homePhoneLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "homePhoneLine",
+          "position": [
+            92,
+            34
+          ],
+          "dest": [
+            306,
+            34
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "cellPhoneLabel",
+          "position": [
+            376,
+            36
+          ],
+          "field": "cellPhoneLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "cellPhoneLine",
+          "position": [
+            378,
+            34
+          ],
+          "dest": [
+            592,
+            34
+          ]
+        },
+        {
+          "section": "root.part2",
+          "type": "textBlock",
+          "name": "emailAddressLabel",
+          "position": [
+            90,
+            18
+          ],
+          "field": "emailAddressLabel",
+          "align": "right"
+        },
+        {
+          "section": "root.part2",
+          "type": "line",
+          "name": "emailAddressLine",
+          "position": [
+            92,
+            16
+          ],
+          "dest": [
+            592,
+            16
+          ]
+        },
+        {
+          "type": "section",
+          "name": "part3",
+          "section": "root",
+          "position": [
+            0,
+            20
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "regHdr",
+          "position": [
+            20,
+            332
+          ],
+          "field": "regHdr",
+          "font": {
+            "bold": true,
+            "size": 12
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "regHdrLine",
+          "position": [
+            0,
+            330
+          ],
+          "dest": [
+            612,
+            330
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "regMsg",
+          "position": [
+            20,
+            296
+          ],
+          "font": {
+            "bold": true,
+            "size": 12
+          },
+          "field": "regMsg",
+          "lines": 3
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "line",
+          "position": [
+            0,
+            291
+          ],
+          "dest": [
+            612,
+            291
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "payTo",
+          "position": [
+            306,
+            231
+          ],
+          "font": {
+            "size": 14,
+            "bold": true
+          },
+          "align": "center",
+          "field": "payTo",
+          "lines": 3
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "event",
+          "position": [
+            163,
+            211
+          ],
+          "font": {
+            "size": 12,
+            "bold": true
+          },
+          "align": "center",
+          "field": "event"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "attending",
+          "position": [
+            444,
+            211
+          ],
+          "font": {
+            "size": 12,
+            "bold": true
+          },
+          "align": "right",
+          "field": "attending"
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "numGuests",
+          "position": [
+            454,
+            211
+          ],
+          "font": {
+            "size": 12,
+            "bold": true
+          },
+          "align": "left",
+          "field": "numGuests"
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "hdrLine",
+          "position": [
+            0,
+            209
+          ],
+          "dest": [
+            612,
+            209
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "hdrDivLine",
+          "position": [
+            449,
+            209
+          ],
+          "dest": [
+            449,
+            223
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "reunionRegNumLine",
+          "position": [
+            449,
+            188
+          ],
+          "dest": [
+            509,
+            188
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "box",
+          "name": "reunionRegBoxCheckBox",
+          "position": [
+            419,
+            191
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "reunionRegAmtLine",
+          "position": [
+            529,
+            188
+          ],
+          "dest": [
+            592,
+            188
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "transMiscNumLine",
+          "position": [
+            449,
+            173
+          ],
+          "dest": [
+            509,
+            173
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "box",
+          "name": "transMiscBoxCheckBox",
+          "position": [
+            419,
+            176
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "transMiscAmtLine",
+          "position": [
+            529,
+            173
+          ],
+          "dest": [
+            592,
+            173
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "golfScrambleNumLine",
+          "position": [
+            449,
+            158
+          ],
+          "dest": [
+            509,
+            158
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "box",
+          "name": "golfScrambleBoxCheckBox",
+          "position": [
+            419,
+            161
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "golfScrambleAmtLine",
+          "position": [
+            529,
+            158
+          ],
+          "dest": [
+            592,
+            158
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "poolsideCookoutNumLine",
+          "position": [
+            449,
+            143
+          ],
+          "dest": [
+            509,
+            143
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "box",
+          "name": "poolsideCookoutBoxCheckBox",
+          "position": [
+            419,
+            146
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "poolsideCookoutAmtLine",
+          "position": [
+            529,
+            143
+          ],
+          "dest": [
+            592,
+            143
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "dinnerNumLine",
+          "position": [
+            449,
+            128
+          ],
+          "dest": [
+            509,
+            128
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "box",
+          "name": "dinnerBoxCheckBox",
+          "position": [
+            419,
+            131
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "dinnerAmtLine",
+          "position": [
+            529,
+            128
+          ],
+          "dest": [
+            592,
+            128
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "volContributionNumLine",
+          "position": [
+            449,
+            113
+          ],
+          "dest": [
+            509,
+            113
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "box",
+          "name": "volContributionBoxCheckBox",
+          "position": [
+            419,
+            116
+          ],
+          "size": [
+            10,
+            10
+          ],
+          "mode": "stroke",
+          "stroke": 0,
+          "width": 1
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "volContributionAmtLine",
+          "position": [
+            529,
+            113
+          ],
+          "dest": [
+            592,
+            113
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "totalGrandTotalLbl",
+          "position": [
+            449,
+            101
+          ],
+          "font": {
+            "color": "#FF0000",
+            "size": 12,
+            "bold": true
+          },
+          "field": "totalGrandTotalLbl"
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "totalAmtLine",
+          "position": [
+            529,
+            98
+          ],
+          "dest": [
+            592,
+            98
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "labels",
+          "position": [
+            20,
+            101
+          ],
+          "lineHeight": 15,
+          "font": {
+            "size": 13
+          },
+          "field": "labels",
+          "lines": 7
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "dollars",
+          "position": [
+            529,
+            101
+          ],
+          "lineHeight": 15,
+          "font": {
+            "size": 13
+          },
+          "field": "dollars",
+          "lines": 7
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "wristband",
+          "position": [
+            50,
+            83
+          ],
+          "field": "wristband",
+          "font": {
+            "bold": true,
+            "size": 15
+          }
+        },
+        {
+          "section": "root.part3",
+          "type": "line",
+          "name": "bottomLine",
+          "position": [
+            0,
+            70
+          ],
+          "dest": [
+            612,
+            70
+          ]
+        },
+        {
+          "section": "root.part3",
+          "type": "textBlock",
+          "name": "onlineNotice",
+          "position": [
+            306,
+            0
+          ],
+          "align": "center",
+          "font": {
+            "size": 14,
+            "bold": true
+          },
+          "field": "onlineNotice",
+          "lines": 5
+        }
+      ],
+      "data": {
+        "head1": [
+          "47/fs:sup;th/fs:r;    Infantry Regiment",
+          ""
+        ],
+        "head2": [
+          "",
+          ""
+        ],
+        "regFormHeader": "REGISTRATION FORM",
+        "leftReunion": "Reunion",
+        "leftYear": "2022",
+        "rightReunion": "Reunion",
+        "rightYear": "2022",
+        "lastNameLabel": "Last Name:",
+        "guestNameLabel": "Guest Name:",
+        "firstNameLabel": "First Name:",
+        "guestBadgeNameLabel": "Name on Badge:",
+        "eventsAttending": "Events Attending",
+        "badgeNameLabel": "Name on Badge:",
+        "unitsLabel": "Unit(s):",
+        "regimentalDinnerLabel": "Regimental Dinner",
+        "transMiscLabel": "Transportation Etc",
+        "datesLabel": "Dates In Country:",
+        "poolsideCookoutLabel": "Poolside Cookout",
+        "golfScrambleLabel": "Golf Scramble",
+        "entryReq": [
+          "Entry to Ft. Benning via bus will require a photo ID for everyone and an Active Duty escort. Golf will be held at The Ft. Benning Golf Course at",
+          "Ft. Benning, Columbus, GA.",
+          "",
+          "Additional Guests may be added on a seperate sheet of paper. Please make sure to include their name, the name to be printed on their",
+          "badge, events they wish to attend, as well as including them in the number of guests attending and the total calculations at the bottom",
+          "of this form."
+        ],
+        "addInfHdr": "Additional Information Requested",
+        "streetAddressLabel": "Street Address:",
+        "cityLabel": "City:",
+        "stateLabel": "State:",
+        "zipLabel": "ZIP Code:",
+        "homePhoneLabel": "Home Phone:",
+        "cellPhoneLabel": "Cell Phone:",
+        "emailAddressLabel": "Email Address:",
+        "regHdr": "Reunion Registration",
+        "regMsg": [
+          "You may use this form to register. Complete it and mail your payment. Please consider using the website to register.",
+          "You may review your badge information and will be added to the roster of those attending for all to see.",
+          "You may call us to register and pay by phone."
+        ],
+        "payTo": [
+          "PLEASE MAKE CHECKS OUT TO 47/fs:sup;th/fs:r;    INFANTRY REGIMENT ASSOC.",
+          "MAIL CHECK TO: Rudy Kaldi, 2601 W. Marion Ave, Unit 41A, Punta Gorda, FL 33950",
+          "support@47inf.org, Phone: (860) 836-1020"
+        ],
+        "event": "Event",
+        "attending": "Attending",
+        "numGuests": "# of Guests",
+        "totalGrandTotalLbl": "Grand Total:",
+        "labels": [
+          "Reunion registration / /fs:#FF0000;$25.00/fs:r; Per Attendee and each Guest",
+          "Transportation & Miscellaneous Expenses / /fs:#FF0000;$20.00/fs:r; per Attendee",
+          "9th Annual Golf Scramble / /fs:#FF0000;$65.00/fs:r; per Golfer (Refreshments)",
+          "Evening Poolside Cookout / /fs:#FF0000;$30.00/fs:r; per Attendee",
+          "47/fs:sup;th/fs:r;    Regimental Dinner / /fs:#FF0000;$50.00/fs:r; per Attendee",
+          "Reunion Voluntary Contribution (Refreshments and Snacks)",
+          "(Add individual prices with guest prices for grand total)"
+        ],
+        "dollars": [
+          "$",
+          "$",
+          "$",
+          "$",
+          "$",
+          "$",
+          "$"
+        ],
+        "wristband": "-- Wristbands required for bus and pool party --",
+        "onlineNotice": [
+          "YOU MAY COMPLETE THIS FORM ONLINE AT 47INF.ORG AND PRINT FOR MAILING WITH YOUR",
+          "PAYMENT. PLEASE HELP US KEEP TRACK OF WHO IS ATTENDING BY USING ONLINE FORM.",
+          "YOU MAY ALSO VIEW WHO WILL BE AT THE REUNION.",
+          "",
+          "/fs:b:24;YOU MAY REGISTER AND PAY ONLINE AT 47INF.ORG"
+        ]
+      }
+    }
+  }
+}
