@@ -27,7 +27,7 @@
     </v-card>
 
     <v-overlay opacity="0.90" :value="showPayment">
-      <payment-form v-on:close="showPayment=false" />
+      <payment-form @close="showPayment=false" />
     </v-overlay>
   </div>
 </template>

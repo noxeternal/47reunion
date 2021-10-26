@@ -3,7 +3,9 @@
     <v-card class="pdf-view">
       <v-card-actions class="accent">
         <v-spacer />
-        <v-btn class="warning" @click="close()">Close</v-btn>
+        <v-btn class="warning" @click="close()">
+          Close
+        </v-btn>
         <v-spacer />
       </v-card-actions>
       <v-card-text style="padding: 0">

@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline">
-        47<sup>th</sup> Infantry Regiment Association Reunion
+        47<sup>th</sup> Infantry Regiment Association Reunion -  April 27-30, 2022
       </v-toolbar-title>
       <v-spacer />
       <div>
@@ -56,7 +56,7 @@
           <badge class="mt-2" />
         </v-col>
         <v-col cols="2">
-          <user-menu :changed="changed" :loadingPDF="loadingPDF" @reset="reset()" @save="save()" @genpdf="genPDF()" />
+          <user-menu :changed="changed" :loading-p-d-f="loadingPDF" @reset="reset()" @save="save()" @genpdf="genPDF()" />
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -75,12 +75,11 @@
       <v-progress-circular v-if="showLoading" indeterminate :width="15" :size="150" color="accent" />
     </v-overlay>
     
-    <pdf-view :pdf="pdf" v-on:close="pdf=null" />
+    <pdf-view :pdf="pdf" @close="pdf=null" />
 
     <v-overlay opacity="0.90" :value="showAttendance">
-      <attendance v-on:close="showAttendance=false" class="fullView" />
+      <attendance @close="showAttendance=false" class="fullView" />
     </v-overlay>
-
   </v-app>
 </template>
 
