@@ -20,9 +20,9 @@
         <v-btn width="80%" class="ma-2 accent" :loading="loadingPDF" @click="genPDF()">
           Print
         </v-btn>
-        <v-btn width="80%" class="ma-2 accent" @click="makePayment()">
+        <!-- <v-btn width="80%" class="ma-2 accent" @click="makePayment()">
           Pay
-        </v-btn>
+        </v-btn> -->
       </v-card-text>
     </v-card>
 

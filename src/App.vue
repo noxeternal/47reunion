@@ -2,14 +2,14 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline">
-        47<sup>th</sup> Infantry Regiment Association - 2020 Reunion
+        47<sup>th</sup> Infantry Regiment Association Reunion
       </v-toolbar-title>
       <v-spacer />
       <div>
         <v-icon class="mr-1">
           mdi-view-list
         </v-icon>
-        <span class="ul pointer" @click="showEvents=!showEvents">View Schedule of Events</span><br>
+        <!-- <span class="ul pointer" @click="showEvents=!showEvents">View Schedule of Events</span><br> -->
         <v-icon class="mr-1">
           mdi-account-group
         </v-icon>

@@ -1,7 +1,7 @@
 <template>
   <v-card @click="$emit('hide')" class="overflow">
     <v-card-title>
-      Schedule of Events: April 21-26, 2020
+      Schedule of Events
       <v-spacer />
       <v-btn icon @click="$emit('hide')">
         <v-icon color="red">

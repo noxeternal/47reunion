@@ -17,7 +17,7 @@
               47<sup>th</sup> Infantry Regiment
             </div>
             <div class="text-center subtitle-1">
-              2020 Reunion
+              2022 Reunion
             </div>
           </v-col>
           <v-col cols="3">

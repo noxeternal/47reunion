@@ -24,7 +24,7 @@ export default new Vuex.Store({
       { name: "Regimental Dinner", amt: 50, short: 'Dinner' },
       { name: "Poolside Cookout", amt: 30, short: 'Cookout' },
       { name: "Golf Scramble", amt: 65, short: 'Golf' },
-      { name: "Transportation & Misc", amt: 15, short: 'Bus'}
+      { name: "Transportation & Misc", amt: 20, short: 'Bus'}
     ],
     details: {
       Platoon: ['1st', '2nd', '3rd', '4th', 'Recon'],
