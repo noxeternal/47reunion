@@ -60,13 +60,13 @@ export default {
     schedule: [
       {
         day: 'Tues',
-        date: '21 April',
+        date: '26 April',
         time: 'All Day',
         event: ['Advanced Party Arrives'],
         location: 'Columbus Marriott'
       },{
         day: 'Wed',
-        date: '22 April',
+        date: '27 April',
         time: 'All Day',
         event: ['Registration'],
         location: 'Columbus Marriott'
@@ -84,118 +84,92 @@ export default {
         date: '',
         time: 'Evening',
         event: [
-          'Open Mixer (Vets, Ad\'s)',
+          'Open Mixer (Vets, Guests, AD\'s)',
           '50/50 Raffle'
         ],
         location: 'Columbus Marriott'
       },{
         day: 'Thurs',
-        date: '23 April',
-        time: '0730',
-        event: ['Scout Scramble Golf Tournament'],
-        location: 'Fort Benning Golf Course'
+        date: '28 April',
+        time: '0800',
+        event: [
+          'Bus trip to the National Infantry Museum and',
+          'Ceremony at the Viet Nam Wall for our Roll Call'
+        ],
+        location: 'National Infantry Museum'
       },{
         day: '',
         date: '',
-        time: '0830',
+        time: '1200',
         event: [
-          'Lady\'s Day Enjoy Downtown Columbus',
-          '(River Walk Stores, Shops, and Dining)'
+          'Fort Benning and Lunch with the Troops is a',
+          'work in progress. TBA! (Photo ID & wristband req\'d)'
         ],
-        location: 'Columbus, GA'
+        location: 'Fort Benning'
       },{
         day: '',
         date: '',
         time: 'Evening',
         event: [
-          'Open Mixer (Vets, Ad\'s)',
+          'Open Mixer (Vets, AD\'s)',
           '50/50 Raffle'
         ],
         location: 'Columbus Marriott'
       },{
         day: 'Fri',
-        date: '24 April',
-        time: '0700',
-        event: ['Bus leaves for Parade Field at the NIM'],
-        location: 'National Infantry Museum'
-      },{
-        day: '',
-        date: '',
-        time: '0900',
-        event: ['Graduation Ceremony 3rd Bn 47th'],
-        location: 'NIM Parade Field'
-      },{
-        day: '',
-        date: '',
-        time: '1030',
-        event: [
-          'Ceremony at the Vietnam Wall Roll Call on Passed Brothers',
-          'Cambodian Incursion 50 Year Anniversary Recognition'
-        ],
-        location: 'Vietnam Wall Ceremony'
-      },{
-        day: '',
-        date: '',
-        time: '1130',
-        event: [
-          'Buses to Consolidated Dining Facility',
-          'Enjoy lunch with the troops'
-        ],
-        location: 'Fort Benning'
-      },{
-        day: '',
-        date: '',
-        time: '1300',
-        event: ['Weapons Display'],
-        location: 'Fort Benning'
-      },{
-        day: '',
-        date: '',
-        time: '1500',
-        event: ['Buses return to Columbus Marriott and The Hampton Inn'],
-        location: 'Columbus Marriott'
-      },{
-        day: '',
-        date: '',
-        time: 'Evening',
-        event: [
-          'Open Mixer (Vets, Ad\'s)', 
-          '50/50 Raffle'
-        ],
-        location: 'Columbus Marriott'
-      },{
-        day: 'Sat',
-        date: '25 April',
-        time: 'Morning',
-        event: [
-          'Enjoy Downtown Columbus',
-          '(River Walk Stores, Shops, and Dining)'
-        ],
+        date: '29 April',
+        time: 'Open',
+        event: ['More sightseeing - Check out the Visitor\'s Center'],
         location: 'Columbus, GA'
       },{
         day: '',
         date: '',
-        time: '0930',
+        time: '0800',
         event: [
-          'Regimental Meeting',
-          'Agenda will be set by HCOR John Ionoff'
-        ],
-        location: 'Columbus Marriott'
+          'Scout Scramble Golf Tournament on the',
+          'Fort Benning GOlf Course.'],
+        location: 'Fort Benning'
       },{
         day: '',
         date: '',
         time: '1800',
         event: [
-          '47th Infantry Regimental Association Dinner',
-          'Guest Speaker MG Bill Matz 3rd of 47th',
-          'HCOR & HCSM Change of Command',
+          'Pool Party - Enjoy Buffet, music, and dancing. (wristband req\'d)',
+          '50/50 Raffle Auction'
         ],
         location: 'Columbus Marriott'
       },{
+        day: 'Sat',
+        date: '30 April',
+        time: 'Open',
+        event: ['Enjoy Columbus'],
+        location: 'Columbus, GA'
+      },{
+        day: '',
+        date: '',
+        time: '1000',
+        event: ['Regimental Meeting - All are encourged to attend.'],
+        location: 'Columbus Marriott'
+      },{
+        day: '',
+        date: '',
+        time: '1800',
+        event: ['Social Hour - Cash Bar'],
+        location: 'Columbus Marriott'
+      },{
+        day: '',
+        date: '',
+        time: '1900',
+        event: [
+          'Regimental Dinner - Assigned Seating',
+          'Guest Speaker MG David Zabecki'
+        ],
+        location: 'Ironworks Convention Center'
+      },{
         day: 'Sun',
-        date: '26 April',
+        date: '1 May',
         time: 'All Day',
-        event: ['Checkout/Depart'],
+        event: ['Checkout/Depart - Be Safe!'],
         location: 'Columbus Marriott'
       }
     ]
